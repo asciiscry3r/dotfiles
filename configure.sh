@@ -23,7 +23,7 @@ libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev \
 libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev \
 uthash-dev libev-dev libx11-xcb-dev
 
-sudo apt install -y build-essential cmake ninja meson
+sudo apt install -y build-essential cmake ninja-build meson
 
 mkdir -p ~/.i3
 mkdir -p ~/.config/dunst
@@ -53,7 +53,9 @@ else
 fi
 
 git submodule update --init --recursive
+meson --reconfigure . build
 meson --buildtype=release . build
+ninja reconfigure -C build
 ninja -C build
 
 cd ..
@@ -68,10 +70,12 @@ else
 fi
 
 mkdir -p build && cd build
+meson --reconfigure
 meson ..
+ninja reconfigure
 ninja
 
-cd ../..
+cd ../../
 
 ### Get some interesting repos
 if [ -d "HiddenWall"]; then
