@@ -4,9 +4,7 @@
 ### For Ubuntu ####
 ###################
 
-
 sudo apt update && sudo apt upgrade -y && sudo apt autoremove
-
 
 sudo apot install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
 libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libxcb-xrm-dev \
@@ -23,7 +21,10 @@ libxcb-glx0-dev libpixman-1-dev libdbus-1-dev libconfig-dev \
 libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev \
 uthash-dev libev-dev libx11-xcb-dev
 
-sudo apt install -y build-essential cmake ninja-build meson
+sudo apt install -y build-essential cmake ninja-build meson \
+rustc cargo make libpcre3 libpcre3-dbg libpcre3-devautoconf automake \
+libtool libpcap-dev libnet1-dev libyaml-0-2 libyaml-dev zlib1g zlib1g-dev \
+libcap-ng-dev libcap-ng0 make libmagic-dev libjansson-dev libjansson4 pkg-config
 
 mkdir -p ~/.i3
 mkdir -p ~/.config/dunst
