@@ -1,4 +1,4 @@
-##!/usr/bin/env bash
+#!/usr/bin/env bash
 
 ###################
 ### For Ubuntu ####
@@ -22,9 +22,11 @@ libgl1-mesa-dev libpcre2-dev libpcre3-dev libevdev-dev \
 uthash-dev libev-dev libx11-xcb-dev
 
 sudo apt install -y build-essential cmake ninja-build meson \
-rustc cargo make libpcre3 libpcre3-dbg libpcre3-devautoconf automake \
+rustc cargo make libpcre3 libpcre3-dbg libpcre3-dev autoconf automake \
 libtool libpcap-dev libnet1-dev libyaml-0-2 libyaml-dev zlib1g zlib1g-dev \
-libcap-ng-dev libcap-ng0 make libmagic-dev libjansson-dev libjansson4 pkg-config
+libcap-ng-dev libcap-ng0 make libmagic-dev libjansson-dev libjansson4 pkg-config \
+libnetfilter-queue-dev libnetfilter-queue1 libnfnetlink-dev libnfnetlink0 \
+python3-pip python3-virtualenv wget
 
 mkdir -p ~/.i3
 mkdir -p ~/.config/dunst
@@ -44,7 +46,18 @@ else
 	cd ~/Appssource
 fi
 
-## Compile Picom 
+### Compile and install suricata
+
+# wget https://www.openinfosecfoundation.org/download/suricata-6.0.2.tar.gz
+# tar -xvzf suricata-6.0.2.tar.gz
+# cd suricata-6.0.2
+# ./configure --enable-nfqueue --prefix=/usr --sysconfdir=/etc --localstatedir=/var
+# make
+# make install-full
+# make install-rules
+# cd ../../
+
+### Compile Picom 
 
 if [ -d "picom" ]; then
 	cd picom && git pull
@@ -61,7 +74,7 @@ ninja -C build
 
 cd ..
 
-## Compile i3-gaps 
+### Compile i3-gaps 
 
 if [ -d "i3-gaps"  ]; then
 	cd i3-gaps && git pull
@@ -85,6 +98,6 @@ else
 	git clone https://github.com/CoolerVoid/HiddenWall
 fi
 
-## Install Soft
+### Install Soft
 sudo apt install rofi dmenu dunst usbguard py3status ranger htop nitrogen xfce4-power-manager tlp tlp-rdw clipit redshift unclutter blueman firejail pavucontrol pasystray scrot pcmanfm pass pwgen net-tools nmap bind9-utils
 
