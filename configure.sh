@@ -29,7 +29,7 @@ rustc cargo make libpcre3 libpcre3-dbg libpcre3-dev autoconf automake \
 libtool libpcap-dev libnet1-dev libyaml-0-2 libyaml-dev zlib1g zlib1g-dev \
 libcap-ng-dev libcap-ng0 make libmagic-dev libjansson-dev libjansson4 pkg-config \
 libnetfilter-queue-dev libnetfilter-queue1 libnfnetlink-dev libnfnetlink0 \
-python3-pip python3-virtualenv wget
+python3-pip python3-virtualenv wget screen
 
 mkdir -p ~/.i3
 mkdir -p ~/.config/dunst
@@ -62,7 +62,7 @@ fi
 # make install-rules
 # cd ../../
 
-### Compile Picom 
+### Compile Picom
 
 if [ -d "picom" ]; then
 	cd picom && git pull
@@ -79,7 +79,7 @@ ninja -C build install
 
 cd ..
 
-### Compile i3-gaps 
+### Compile i3-gaps
 
 # if [ -d "i3-gaps"  ]; then
 #	cd i3-gaps && git pull
@@ -115,15 +115,19 @@ sudo apt purge -y firefox gnome-shell gnome-shell-common gnome-screenshot yelp s
 gnome-online-accounts gnome-settings-daemon gnome-settings-daemon-common gnome-startup-applications \
 gnome-system-monitor gnome-terminal gnome-terminal-data gnome-session-bin gnome-session-canberra \
 gnome-session-common gnome-disk-utility gnome-desktop3-data gnome-control-center-faces \
-gnome-control-center-data gnome-control-center
+gnome-control-center-data gnome-control-center nautilus*
 sudo apt autoremove -y
 
 ### Install Soft
-sudo apt install -y rofi dmenu python3-pydbus dunst usbguard py3status ranger htop nitrogen xfce4-power-manager \
-tlp tlp-rdw clipit redshift unclutter blueman firejail pavucontrol pasystray scrot pcmanfm pass \
-pwgen net-tools nmap bind9-utils sddm gparted python3-notify2 rxvt-unicode-256color lxappearance numix-icon-theme-circle feh zathura whoopsie
+sudo apt install -y rofi dmenu python3-pydbus dunst usbguard py3status ranger htop nitrogen \
+xfce4-power-manager tlp tlp-rdw clipit redshift unclutter blueman firejail pavucontrol pasystray \
+scrot pcmanfm pass pwgen net-tools nmap bind9-utils sddm gparted python3-notify2 \
+rxvt-unicode-256color lxappearance numix-icon-theme-circle feh zathura whoopsie \
+paprefs python3-googleapi python3-protobuf dconf-editor sosreport
 
-if [ -f /usr/bin/terminal ]; then	
+sudo -H pip3 install autotiling
+
+if [ -f /usr/bin/terminal ]; then
 	echo "link allready created"
 else
 	sudo ln -s /usr/bin/rxvt-unicode /usr/bin/terminal
@@ -157,9 +161,10 @@ else
 fi
 
 #####
-# cd deb
-# sudo dpkg -i *.deb
-# sudo apt install -f && sudo apt autoremove -y
+cd ~/Debpackages
+sudo dpkg -i *.deb
+sudo apt install -f && sudo apt autoremove -y
+
 
 echo "DONE!!!!!!!!!!!!!!!!. FUCK!"
 
