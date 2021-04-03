@@ -101,6 +101,13 @@ cd ..
 sudo add-apt-repository ppa:regolith-linux/release -y
 sudo apt-get update
 sudo apt install -y i3-gaps
+### Connect to nvidia ppa
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.2.2/local_installers/cuda-repo-ubuntu2004-11-2-local_11.2.2-460.32.03-1_amd64.deb
+sudo dpkg -i cuda-repo-ubuntu2004-11-2-local_11.2.2-460.32.03-1_amd64.deb
+sudo apt-key add /var/cuda-repo-ubuntu2004-11-2-local/7fa2af80.pub
+sudo apt-get update
 
 ### Get some interesting repos
 if [ -d "HiddenWall" ]; then
@@ -115,7 +122,7 @@ sudo apt purge -y firefox gnome-shell gnome-shell-common gnome-screenshot yelp s
 gnome-online-accounts gnome-settings-daemon gnome-settings-daemon-common gnome-startup-applications \
 gnome-system-monitor gnome-terminal gnome-terminal-data gnome-session-bin gnome-session-canberra \
 gnome-session-common gnome-disk-utility gnome-desktop3-data gnome-control-center-faces \
-gnome-control-center-data gnome-control-center nautilus*
+gnome-control-center-data gnome-control-center nautilus* speech-dispatcher
 sudo apt autoremove -y
 
 ### Install Soft
@@ -166,12 +173,7 @@ sudo dpkg -i *.deb
 sudo apt install -f && sudo apt autoremove -y
 
 
-echo "DONE!!!!!!!!!!!!!!!!. FUCK!"
-
-
-
-
-
+echo "DONE!!!!!!!!!!!!!!!!"
 
 sleep 3
 
