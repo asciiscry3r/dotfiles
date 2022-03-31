@@ -23,55 +23,41 @@ font xft:UbuntuMono Nerd Font Mono:style=Regular 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
 bindsym $mod+d exec --no-startup-id rofi -show drun
+# -modi "window,run,ssh,windowcd,drun,combi,keys,filebrowser,teiler:/usr/bin/teiler"
 
-# launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
+###############################################################################
+## sound-section ##############################################################
+###############################################################################
 
-################################################################################################
-## sound-section ###############################################################################
-################################################################################################
-
-exec --no-startup-id pasystray
+# exec --no-startup-id pulseaudio
+exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
 
-################################################################################################
+###############################################################################
 
-# Volume controls
-bindsym XF86AudioMute exec "pulseaudio-ctl mute; notify-send Mute: pulseaudio-ctl full-status | awk '{print $2}"
-bindsym XF86AudioRaiseVolume exec "pulseaudio-ctl up; notify-send Volume: $(pulseaudio-ctl full-status | grep -Eo '[0-9]{1,4}')"
-bindsym XF86AudioLowerVolume exec "pulseaudio-ctl down; notify-send Volume: $(pulseaudio-ctl full-status | grep -Eo '[0-9]{1,4}')"
-
-################################################################################################
-# Use pactl to adjust volume in PulseAudio.
-# set $refresh_i3status killall -SIGUSR1 i3status
-# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
-# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
-# bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
-# bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-
-# Start Applications
-bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec firejail --apparmor --name=chrome google-chrome-stable
-bindsym $mod+F3 exec terminal -e 'ranger'
-bindsym $mod+F4 exec terminal -e 'htop'
-# bindsym $mod+Shift+F4 terminal -e 'watch sudo ss -ntulpa' 
-bindsym $mod+Shift+F3 exec pcmanfm_pkexec
-bindsym $mod+F5 exec terminal -e 'mocp'
+# Start Applications snadbox --x11
+# /usr/local/bin/google-chrome-libjemalloc.sh
+bindsym $mod+F2 exec google-chrome-stable --disable-video-capture-use-gpu-memory-buffer --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging --enable-protected-video-buffers --enable-reporting --use-vulkan
+bindsym $mod+Shift+F2 exec firefox
+bindsym $mod+Shift+p exec steam
+bindsym $mod+F3 exec pcmanfm
+bindsym $mod+F4 exec urxvt -e 'htop'
+# bindsym $mod+Shift+F3 exec pkexec pcmanfm
+# bindsym $mod+F5 exec urxvt -e 'mocp'
+# bindsum $mod+Shift+t urxvt --no-startup-id /home/max/.scripts/transnot.sh
 bindsym $mod+t exec --no-startup-id pkill picom --experimental-backends -b
 bindsym $mod+Ctrl+t exec --no-startup-id picom --experimental-backends -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id scrot
-bindsym $mod+Print --release exec --no-startup-id teiler
-# bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-# bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym Print exec --no-startup-id teiler
+# bindsym $mod+Print exec --no-startup-id scrot
+# bindsym $mod+Ctrl+k exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
@@ -203,7 +189,7 @@ for_window [class="Lxappearance"] floating enable
 for_window [class="Blueman-manager"] floating enable
 for_window [title="MuseScore: Play Panel"] floating enable
 for_window [class="Nitrogen"] floating enable
-for_window [class="Oblogout"] fullscreen enable
+for_window [class="Xfce4-power-manager-settings"] floating enable
 for_window [class="octopi"] floating enable
 for_window [class="Pavucontrol"] floating enable
 for_window [class="qt5ct"] floating enable
@@ -213,7 +199,9 @@ for_window [class="(?i)System-config-printer.py"] floating enable
 for_window [class="Skype"] floating enable
 for_window [class="Timeset-gui"] floating enable
 for_window [class="(?i)virtualbox"] floating enable
-for_window [class="Xfburn"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Nut-monitor"] floating enable
+for_window [class="Bitwarden"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -272,33 +260,20 @@ mode "resize" {
 bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id /home/max/.i3/autostart
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
 exec --no-startup-id nm-applet
-exec --no-startup-id opensnitch-ui
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id clipit
-exec --no-startup-id firejail --apparmor --seccomp --name=telegram telegram-desktop
-exec --no-startup-id blueman-applet
-exec --no-startup-id redshift -l 50.4091727:30.5105691
+exec --no-startup-id telegram-desktop --
 exec --no-startup-id unclutter
 exec --no-startup-id udev-notify
-# exec --no-startup-id xautolock -time 60 -locker blurlock
-exec --no-startup-id autotiling
-# exec_always --no-startup-id ff-theme-util
-# exec_always --no-startup-id fix_xcursor
+exec --no-startup-id gxkb
+exec_always --no-startup-id autotiling
+exec --no-startup-id xsuspender
+exec --no-startup-id opensnitch-ui
+exec --no-startup-id python3 /opt/thefanclub/overgrive/overgrive
+exec_always --no-startup-id /home/max/.config/i3/autostart
 
-# Color palette used for the terminal ( ~/.Xresources file )
-# Colors are gathered based on the documentation:
-# https://i3wm.org/docs/userguide.html#xresources
-# Change the variable name at the place you want to match the color
-# of your terminal like this:
-# [example]
-# If you want your bar to have the same background color as your 
-# terminal background change the line 362 from:
-# background #14191D
-# to:
 # background $term_background
 # Same logic applied to everything else.
 set_from_resource $term_background background
@@ -323,20 +298,21 @@ set_from_resource $term_color15    color15
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
 	i3bar_command i3bar
-	status_command py3status -c ~/.i3/i3status.conf
-	position top
+	# status_command py3status -c ~/.config/i3/i3status.conf
+	status_command i3status
+	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-	tray_output eDP-1-0
+	tray_output eDP-1
+#        tray_output primary
 
 	bindsym button4 nop
 	bindsym button5 nop
-#   font xft:URWGothic-Book 11
+        font xft:UbuntuMono Nerd Font Mono:style=Regular 10
 	strip_workspace_numbers yes
 
     colors {
-        background #000000
+        background #0F090C
         statusline #f8f8f8
         separator  #dedede
 
@@ -358,7 +334,7 @@ bindsym $mod+m bar mode toggle
   client.focused_inactive #006180 #006180 #ffffff #006180
   client.unfocused        #2B0080 #2B0080 #ffffff #2b0080
   client.urgent           #CE003D #CE003D #ffffff #ce003d
-  client.placeholder      #000000 #0c0c0c #ffffff #000000 
+  client.placeholder      #000000 #0c0c0c #ffffff #000000
 
   client.background       $term_background
 
@@ -378,7 +354,7 @@ gaps outer -2
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
