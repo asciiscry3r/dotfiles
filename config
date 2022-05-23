@@ -17,13 +17,13 @@ hide_edge_borders none
 # bindsym $mod+n border normal
 
 # Font for window titles. Will also be used by the bar unless a different font
-font xft:UbuntuMono Nerd Font Mono:style=Regular 10
+font xft:Terminess Nerd Font Mono:style=Regular 9
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc
+bindsym $mod+Return exec urxvtc  
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -37,22 +37,23 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 ###############################################################################
 
 # exec --no-startup-id pulseaudio
-# exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
+#exec --no-startup-id pa-applet
+#bindsym $mod+Ctrl+m exec pavucontrol
 
 ###############################################################################
 
 # Start Applications snadbox --x11
 # /usr/local/bin/google-chrome-libjemalloc.sh
-bindsym $mod+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging --enable-protected-video-buffers --enable-reporting --use-vulkan
-bindsym $mod+Shift+F2 exec firejail --noroot --apparmor --seccomp --name=firefox firefox
-bindsym $mod+Shift+p exec firejail --noroot --seccomp --name=steam steam
+bindsym $mod+F1 exec emacsclient -nc
+bindsym $mod+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging -enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan
+bindsym $mod+Shift+F2 exec /usr/bin/firejail-firefox
+bindsym $mod+Shift+p exec /usr/bin/firejail-steam
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F4 exec urxvt -e 'htop'
 # bindsym $mod+Shift+F3 exec pkexec pcmanfm
 # bindsym $mod+F5 exec urxvt -e 'mocp'
 # bindsum $mod+Shift+t urxvt --no-startup-id /home/max/.scripts/transnot.sh
-bindsym $mod+t exec --no-startup-id pkill picom --experimental-backends -b
+bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom --experimental-backends -b
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 bindsym Print exec --no-startup-id teiler
@@ -256,21 +257,21 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
+# Lock screen
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id firejail --noroot --apparmor --seccomp --name=telgram telegram-desktop --
+exec --no-startup-id /usr/bin/firejail-telegram
 exec --no-startup-id unclutter
 exec --no-startup-id udev-notify
+exec --no-startup-id psi-notify
 exec --no-startup-id gxkb
 exec_always --no-startup-id autotiling
-exec --no-startup-id xsuspender
+# exec --no-startup-id xsuspender
 exec --no-startup-id opensnitch-ui
-exec --no-startup-id warpd
-exec --no-startup-id firejail --noroot --apparmor --seccomp --whitelist=/home/max/ --name=overgrive /usr/bin/python3 /opt/thefanclub/overgrive/overgrive
 exec_always --no-startup-id /home/max/.config/i3/autostart
 
 # background $term_background
@@ -302,12 +303,12 @@ bar {
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	tray_output eDP-1
-#        tray_output primary
+	# tray_output eDP-1
+	tray_output primary
 
 	bindsym button4 nop
 	bindsym button5 nop
-        font xft:UbuntuMono Nerd Font Mono:style=Regular 10
+#        font xft:URWGothic-Book 11
 	strip_workspace_numbers yes
 
     colors {
