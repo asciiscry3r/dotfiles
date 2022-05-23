@@ -1,4 +1,4 @@
-#
+H#
 # ~/.bashrc
 #
 
@@ -88,8 +88,6 @@ else
 	fi
 fi
 
-export SYSTEMD_UNIT_PATH=$HOME/.config/systemd/user
-
 # unset use_color safe_term match_lhs sh
 
 alias cp="cp -i"                          # confirm before overwriting something
@@ -108,7 +106,7 @@ shopt -s checkwinsize
 
 shopt -s expand_aliases
 
-# export QT_SELECT=4
+export QT_SELECT=4
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
@@ -142,32 +140,34 @@ ex ()
 xset -b
 xset r rate 400 60
 xhost -
+# xhost +local:root > /dev/null 2>&1
 
-alias reinstallall='sudo pacman -Qqn | sudo pacman -S --overwrite "*" -'
-alias reinstalllocal='cd ~/Public/ && sudo pacman -U --overwrite "*" *.pkg.tar.zst'
-alias reinstallaur='sudo pacman -Qm | sort | sed -e 's/\([^.]*\).*/\1/' -e 's/\(.*\)-.*/\1/' | yay -S -'
+alias reinstallall='sudo pacman -Qqn | sudo pacman -S --overwrite=* -'
+alias reinstallaur='sudo pacman -U --overwrite=* /home/max/Public/*.*.*.zst'
 alias cleancache='sudo pacman -Scc'
+alias removeunused='sudo pacman -Qtdq | sudo pacman -Rns -'
 alias genpassword='pwgen -csny 20 1 | xclip -sel clip'
-alias aideupdate='sudo aide --update > /home/max/GoogleDrive/LOGS/Aide/$(date +%H%M%d%Y).aide.log'
-alias runetherape='sudo etherape -i any > /home/max/GoogleDrive/LOGS/Net/networklog-$(date +%H%M%d%Y).log'
+alias aideupdate='sudo aide --update > /home/max/GoogleDrive/LOGS/Aide/$(date +%H%M%m%d%Y).aide.log'
+alias installarchivers='yay -S arj cpio lha lrzip lzip lzop p7zip unarj unrar unzip xdg-utils zip zstd tar lz4 gzip bzip2 binutils'
+alias aidecheck='sudo aide --check > /home/max/GoogleDrive/LOGS/Aide/$(date +%H%M%m%d%Y).aide.check.log'
+alias runetherape='sudo etherape -i any > /home/max/GoogleDrive/LOGS/Net/networklog-$(date +%H%M%m%d%Y).log'
 alias fastscannetwork='nmap -T5'
-alias getdmesg='sudo dmesg > GoogleDrive/LOGS/Sys/dmesglog-$(date +%H%M%d%Y).log'
-alias runrkhunter='sudo rkhunter --skip-keypress --check --enable additional_rkts,apps,attributes,avail_modules,deleted_files,filesystem,group_accounts,group_changes,hashes,hidden_ports,hidden_procs,immutable,ipc_shared_mem,known_rkts,loaded_modules,local_host,login_backdoors,malware,network,os_specific,packet_cap_apps,passwd_changes,ports,possible_rkt_files,possible_rkt_strings,promisc,properties,rootkits,running_procs,scripts,shared_libs,shared_libs_path,sniffer_logs,startup_files,startup_malware,strings,susp_dirs,suspscan,system_commands,system_configs,system_configs_ssh,system_configs_syslog,tripwire,trojans --logfile /home/max/GoogleDrive/LOGS/Sec/rkhunter-$(date +%H%M%d%Y).log'
+alias getdmesg='sudo dmesg > /home/max/GoogleDrive/LOGS/Sys/dmesglog-$(date +%H%M%m%d%Y).log'
+alias runrkhunter='sudo rkhunter --skip-keypress --check --enable additional_rkts,apps,attributes,avail_modules,deleted_files,filesystem,group_accounts,group_changes,hashes,hidden_ports,hidden_procs,immutable,ipc_shared_mem,known_rkts,loaded_modules,local_host,login_backdoors,malware,network,os_specific,packet_cap_apps,passwd_changes,ports,possible_rkt_files,possible_rkt_strings,promisc,properties,rootkits,running_procs,scripts,shared_libs,shared_libs_path,sniffer_logs,startup_files,startup_malware,strings,susp_dirs,suspscan,system_commands,system_configs,system_configs_ssh,system_configs_syslog,tripwire,trojans --logfile /home/max/LOGS/Sec/rkhunter-$(date +%H%M%m%d%Y).log'
 
 # Git
 alias cleangit='git gc --prune=now --aggressive'
-# alias filterbranchtree='git filter-branch --tree-filter 'rm -rf path/to/your/file' HEAD'
-
-alias myway='echo -e "\nЦели не оправдывают средства, никогда.\nИногда не существенно какова природа действия но существенно зачем и что.\nНавязанные желания и илюзии преследуют любого\nМы биологические машины рожденные хаосом\n" | lolcat'
 
 ## Copy and paste your key here with cat ~/.ssh/id_rsa.pub | xclip -sel clip .
 
 # Name
 echo -e "GRTD GNU/Linux\n
-Enemies in your devices always kill you.
-FUCK OFF FUCKING CRACKERS, FUCKING SCIENTOLOGY MEMBERS, FUCKING PSYOPS. PIRATES AND PEOPLE PLEASE FUCK OFF TOO.
-FUCK OFF ALL FUCKING BICHES WHO SEE THIS EXCEPT SOME SPECIAL SERVICES.
-FUCKING GAY FROM SSU IN PAYMASH STEAL DATABASE DUMP. FUCK YOU."
+Im not a scientologyst and all scientology fuck off\n
+Im not a pirate and all piracy fuck off\n
+Army, ssu, police, national forces, scientology, people is a piracy\n
+And for all piracy - where my salary?\n
+If you all want create biorobot from me - where my multimilion salary?\n
+Enemies in your devices always kill you."
 
 # memes
 fortune | cowsay -f tux | lolcat
