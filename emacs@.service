@@ -1,0 +1,9 @@
+[Unit]
+Description=Emacs Daemon
+
+[Service]
+User=%i
+ExecStart=/usr/bin/emacs --daemon --with-x-toolkit=lucid
+
+[Install]
+WantedBy=multi-user.target
