@@ -1,4 +1,5 @@
-H#
+# Manjaro
+# Arch Wiki
 # ~/.bashrc
 #
 
@@ -142,6 +143,24 @@ xset r rate 400 60
 xhost -
 # xhost +local:root > /dev/null 2>&1
 
+# https://wiki.archlinux.org/title/emacs#Multiplexing_emacs_and_emacsclient
+function emacs {
+    if [[ $# -eq 0 ]]; then
+        /usr/bin/emacs # "emacs" is function, will cause recursion
+        return
+    fi
+    args=($*)
+    for ((i=0; i <= ${#args}; i++)); do
+        local a=${args[i]}
+        # NOTE: -c for creating new frame
+        if [[ ${a:0:1} == '-' && ${a} != '-c' && ${a} != '--' ]]; then
+            /usr/bin/emacs ${args[*]}
+            return
+        fi
+    done
+    setsid emacsclient -n -a /usr/bin/emacs ${args[*]}
+}
+
 alias reinstallall='sudo pacman -Qqn | sudo pacman -S --overwrite=* -'
 alias reinstallaur='sudo pacman -U --overwrite=* /home/max/Public/*.*.*.zst'
 alias cleancache='sudo pacman -Scc'
@@ -162,11 +181,6 @@ alias cleangit='git gc --prune=now --aggressive'
 
 # Name
 echo -e "GRTD GNU/Linux\n
-Im not a scientologyst and all scientology fuck off\n
-Im not a pirate and all piracy fuck off\n
-Army, ssu, police, national forces, scientology, people is a piracy\n
-And for all piracy - where my salary?\n
-If you all want create biorobot from me - where my multimilion salary?\n
 Enemies in your devices always kill you."
 
 # memes
