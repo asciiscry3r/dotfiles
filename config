@@ -37,16 +37,16 @@ bindsym $mod+d exec --no-startup-id rofi -show drun
 ###############################################################################
 
 # exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+exec --no-startup-id pa-applet
+bindsym $mod+Ctrl+m exec pavucontrol
 
 ###############################################################################
 
 # Start Applications snadbox --x11
 # /usr/local/bin/google-chrome-libjemalloc.sh
 bindsym $mod+F1 exec emacsclient -nc
-bindsym $mod+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging -enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan
-bindsym $mod+Shift+F2 exec /usr/bin/firejail-firefox
+bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging -enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan
+bindsym $mod+F2 exec /usr/bin/firejail-firefox
 bindsym $mod+Shift+p exec /usr/bin/firejail-steam
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F4 exec urxvt -e 'htop'
@@ -268,7 +268,8 @@ exec --no-startup-id /usr/bin/firejail-telegram
 exec --no-startup-id unclutter
 exec --no-startup-id udev-notify
 exec --no-startup-id psi-notify
-exec --no-startup-id gxkb
+exec --no-startup-id indicator-keylock
+exec --no-startup-id sbxkb
 exec_always --no-startup-id autotiling
 # exec --no-startup-id xsuspender
 exec --no-startup-id opensnitch-ui
