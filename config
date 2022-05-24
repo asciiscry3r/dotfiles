@@ -44,7 +44,7 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 # Start Applications snadbox --x11
 # /usr/local/bin/google-chrome-libjemalloc.sh
-bindsym $mod+F1 exec emacsclient -nc
+bindsym $mod+F1 exe emacsclient -nc
 bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging -enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan
 bindsym $mod+F2 exec /usr/bin/firejail-firefox
 bindsym $mod+Shift+p exec /usr/bin/firejail-steam
@@ -269,10 +269,11 @@ exec --no-startup-id unclutter
 exec --no-startup-id udev-notify
 exec --no-startup-id psi-notify
 exec --no-startup-id indicator-keylock
-exec --no-startup-id sbxkb
+exec_always --no-startup-id sbxkb
 exec_always --no-startup-id autotiling
 # exec --no-startup-id xsuspender
 exec --no-startup-id opensnitch-ui
+exec --no-startup-id emacs
 exec_always --no-startup-id /home/max/.config/i3/autostart
 
 # background $term_background
