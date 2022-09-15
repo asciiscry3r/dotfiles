@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
+=#!/usr/bin/env bash
 
 # configure X
 xset -b
 xset r rate 400 60
-
 xhost -
 
 sleep 1
@@ -11,10 +10,22 @@ sleep 1
 setxkbmap -layout us,ru,ua
 setxkbmap -option grp:alt_shift_toggle
 
-sleep 1 && redshift -t 6000:5000 -l 49.9627:33.6053 &
+killall redshift
+
+sleep 1
+
+# start userspace environmet utils
+
+redshift -t 6000:5000 -l 49.9627:33.6053 &
+
+DISPLAY=:%i emacs --fg-daemon &
+
+urxvtd -q -o &
 
 firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit &
 
-# sleep 1 && aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log & 
+sleep 1
 
-# sleep ss -lpntu
+# start apparmor parces
+
+aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log &
