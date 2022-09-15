@@ -15,4 +15,6 @@ firejail --noroot --apparmor --nonewprivs --seccomp --quiet --private-dev --nogr
 	--blacklist=/etc/sahdow~ \
 	--blacklist=/usr/bin/dd \
 	--blacklist=/usr/bin/echo \
+	--blacklist=/dev/mei \
+	--blacklist=/dev/mei0 \
 	--name=firefox firefox
