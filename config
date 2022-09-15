@@ -23,7 +23,7 @@ font xft:Terminess Nerd Font Mono:style=Regular 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvtc  
+bindsym $mod+Return exec urxvtc -fn xft:TerminessTTFNerdFontMono
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -42,12 +42,12 @@ bindsym $mod+Ctrl+m exec pavucontrol
 
 ###############################################################################
 
-# Start Applications snadbox --x11
+# Start Applications sandbox --x11
 # /usr/local/bin/google-chrome-libjemalloc.sh
-bindsym $mod+F1 exe emacsclient -nc
+bindsym $mod+F1 exec emacsclient -nc
 bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging -enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan
 bindsym $mod+F2 exec /usr/bin/firejail-firefox
-bindsym $mod+Shift+p exec /usr/bin/firejail-steam
+# bindsym $mod+Shift+p exec /usr/bin/firejail-steam
 bindsym $mod+F3 exec pcmanfm
 bindsym $mod+F4 exec urxvt -e 'htop'
 # bindsym $mod+Shift+F3 exec pkexec pcmanfm
@@ -203,6 +203,7 @@ for_window [class="(?i)virtualbox"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
 for_window [class="Nut-monitor"] floating enable
 for_window [class="Bitwarden"] floating enable
+for_window [class="helvum"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -264,16 +265,17 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id /usr/bin/firejail-telegram
+# exec --no-startup-id /usr/bin/firejail-telegram
 exec --no-startup-id unclutter
 exec --no-startup-id udev-notify
 exec --no-startup-id psi-notify
-exec --no-startup-id indicator-keylock
+exec --no-startup-id caffeine
 exec_always --no-startup-id sbxkb
 exec_always --no-startup-id autotiling
 # exec --no-startup-id xsuspender
 exec --no-startup-id opensnitch-ui
-exec --no-startup-id emacs
+# exec --no-startup-id DISPLAY=:%i emacs --fg-daemon
+# exec --no-startup-id urxvtd -q -o
 exec_always --no-startup-id /home/max/.config/i3/autostart
 
 # background $term_background
