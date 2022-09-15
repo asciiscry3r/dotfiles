@@ -3,6 +3,8 @@
 # ~/.bashrc
 #
 
+umask 027
+
 [[ $- != *i* ]] && return
 
 colors() {
@@ -45,6 +47,7 @@ case ${TERM} in
 esac
 
 use_color=true
+export EDITOR=vim
 
 # Set colorful PS1 only on colorful terminals.
 # dircolors --print-database uses its own built-in database
@@ -130,6 +133,7 @@ ex ()
       *.zip)       unzip $1     ;;
       *.Z)         uncompress $1;;
       *.7z)        7z x $1      ;;
+      *.xz)        xz -d -v $1  ;;
       *)           echo "'$1' cannot be extracted via ex()" ;;
     esac
   else
@@ -166,22 +170,35 @@ alias reinstallaur='sudo pacman -U --overwrite=* /home/max/Public/*.*.*.zst'
 alias cleancache='sudo pacman -Scc'
 alias removeunused='sudo pacman -Qtdq | sudo pacman -Rns -'
 alias genpassword='pwgen -csny 20 1 | xclip -sel clip'
-alias aideupdate='sudo aide --update > /home/max/GoogleDrive/LOGS/Aide/$(date +%H%M%m%d%Y).aide.log'
+alias aideupdate='sudo aide --update > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.log'
 alias installarchivers='yay -S arj cpio lha lrzip lzip lzop p7zip unarj unrar unzip xdg-utils zip zstd tar lz4 gzip bzip2 binutils'
-alias aidecheck='sudo aide --check > /home/max/GoogleDrive/LOGS/Aide/$(date +%H%M%m%d%Y).aide.check.log'
-alias runetherape='sudo etherape -i any > /home/max/GoogleDrive/LOGS/Net/networklog-$(date +%H%M%m%d%Y).log'
-alias fastscannetwork='nmap -T5'
-alias getdmesg='sudo dmesg > /home/max/GoogleDrive/LOGS/Sys/dmesglog-$(date +%H%M%m%d%Y).log'
-alias runrkhunter='sudo rkhunter --skip-keypress --check --enable additional_rkts,apps,attributes,avail_modules,deleted_files,filesystem,group_accounts,group_changes,hashes,hidden_ports,hidden_procs,immutable,ipc_shared_mem,known_rkts,loaded_modules,local_host,login_backdoors,malware,network,os_specific,packet_cap_apps,passwd_changes,ports,possible_rkt_files,possible_rkt_strings,promisc,properties,rootkits,running_procs,scripts,shared_libs,shared_libs_path,sniffer_logs,startup_files,startup_malware,strings,susp_dirs,suspscan,system_commands,system_configs,system_configs_ssh,system_configs_syslog,tripwire,trojans --logfile /home/max/LOGS/Sec/rkhunter-$(date +%H%M%m%d%Y).log'
-
+alias installgparted='yay -S gparted dosfstools jfsutils f2fs-tools exfatprogs reiserfsprogs udftools xfsprogs gpart mtools'
+alias i3dependencies='yay -S undistract-me-git xfce4-power-manager sbxkb autotiling psi-notify unclutter nitrogen polkit-gnome redshift'
+alias aidecheck='sudo aide --check > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.check.log'
+alias runetherape='sudo etherape -i any > /home/max/Logs/Net/networklog-$(date +%H%M%m%d%Y).log'
+alias networkdiscovery='sudo nmap -sn 192.168.0.0/22'
+alias getdmesg='sudo dmesg > /home/max/Logs/Sys/dmesglog-$(date +%H%M%m%d%Y).log && sudo chown max:max -R /home/max/Logs'
+alias runrkhunter='sudo rkhunter --skip-keypress --check --enable additional_rkts,apps,attributes,avail_modules,deleted_files,filesystem,group_accounts,group_changes,hashes,hidden_ports,hidden_procs,immutable,ipc_shared_mem,known_rkts,loaded_modules,local_host,login_backdoors,malware,network,os_specific,packet_cap_apps,passwd_changes,ports,possible_rkt_files,possible_rkt_strings,promisc,properties,rootkits,running_procs,scripts,shared_libs,shared_libs_path,sniffer_logs,startup_files,startup_malware,strings,susp_dirs,suspscan,system_commands,system_configs,system_configs_ssh,system_configs_syslog,tripwire,trojans --logfile /home/max/Logs/Sec/rkhunter-$(date +%H%M%m%d%Y).log && sudo chown max:max -R /home/max/Logs/Sec'
+alias runacpidump='mkdir -p /home/max/Logs/Acpi/$(date +%H%M%m%d%Y) && sudo acpidump > /home/max/Logs/Acpi/$(date +%H%M%m%d%Y)/$(date +%H%M%m%d%Y)'
+alias gitacpiupload='cd /home/max/Logs/Acpi/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
+alias gitlogsupload='cd /home/max/Logs/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
+alias gitauditupload='sudo cp -r /var/log/audit/ /home/max/Logs/Auditlogs/ && sudo chown max:max -R /home/max/Logs/Auditlogs && cd /home/max/Logs/Auditlogs && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
+alias sectools='yay -S rkhunter usbguard nmap pwgen acpica unhide'
+# alias allowsniftraffic='sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap'
 # Git
 alias cleangit='git gc --prune=now --aggressive'
 
 ## Copy and paste your key here with cat ~/.ssh/id_rsa.pub | xclip -sel clip .
-
+## df --local -P | awk {'if (NR!=1) print $6'} | sudo xargs -I '{}' find '{}' -xdev -nouser
 # Name
 echo -e "GRTD GNU/Linux\n
-Enemies in your devices always kill you."
+Enemies in your devices always kill you.
+Run acpidump periodically.
+'watchexec -- "notify-send 'ALEEERT FUCKING TRIPLE PIRACY ATTACK'"'.
+Scientology = Russian collaboration."
 
 # memes
 fortune | cowsay -f tux | lolcat
+
+source /etc/profile.d/undistract-me.sh
+notify_when_long_running_commands_finish_install
