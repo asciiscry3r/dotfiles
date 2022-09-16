@@ -1,4 +1,4 @@
-=#!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # configure X
 xset -b
@@ -16,13 +16,13 @@ sleep 1
 
 # start userspace environmet utils
 
-redshift -t 6000:5000 -l 49.9627:33.6053 &
+redshift -t 6000:5000 -l 49.9627:33.6053 -- &
 
-DISPLAY=:%i emacs --fg-daemon &
+DISPLAY=:%i emacs --fg-daemon -- &
 
 urxvtd -q -o &
 
-firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit &
+firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit -- &
 
 sleep 1
 
