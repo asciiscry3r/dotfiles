@@ -173,7 +173,7 @@ alias genpassword='pwgen -csny 20 1 | xclip -sel clip'
 alias aideupdate='sudo aide --update > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.log'
 alias installarchivers='yay -S arj cpio lha lrzip lzip lzop p7zip unarj unrar unzip xdg-utils zip zstd tar lz4 gzip bzip2 binutils'
 alias installgparted='yay -S gparted dosfstools jfsutils f2fs-tools exfatprogs reiserfsprogs udftools xfsprogs gpart mtools'
-alias i3dependencies='yay -S undistract-me-git python-psutil xfce4-power-manager sbxkb autotiling psi-notify unclutter nitrogen polkit-gnome'
+alias i3dependencies='yay -S undistract-me-git python-psutil xfce4-power-manager sbxkb autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn'
 alias aidecheck='sudo aide --check > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.check.log'
 alias runetherape='sudo etherape -i any > /home/max/Logs/Net/networklog-$(date +%H%M%m%d%Y).log'
 alias networkdiscovery='sudo nmap -sn 192.168.0.0/22'
@@ -192,6 +192,7 @@ alias cleangit='git gc --prune=now --aggressive'
 ## df --local -P | awk {'if (NR!=1) print $6'} | sudo xargs -I '{}' find '{}' -xdev -nouser
 # Name
 echo -e "GRTD GNU/Linux\n
+Ukraine = Rus'
 Enemies in your devices always kill you.
 Run acpidump periodically.
 'watchexec -- "notify-send 'ALEEERT FUCKING TRIPLE PIRACY ATTACK'"'.
