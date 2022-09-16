@@ -26,6 +26,6 @@ firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit -- &
 
 sleep 1
 
-# start apparmor parces
+# start apparmor parcer
 
 aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log &
