@@ -177,33 +177,35 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Skype"] $ws5
 
 # Open specific applications in floating mode
-for_window [title="alsamixer"] floating enable
-for_window [class="calamares"] floating enable
-for_window [class="Clipgrab"] floating enable
-for_window [title="File Transfer*"] floating enable
-for_window [class="fpakman"] floating enable
-for_window [class="Galculator"] floating enable
-for_window [class="GParted"] floating enable
-for_window [title="TelegramDesktop"] floating enable
-for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable
-for_window [class="Blueman-manager"] floating enable
-for_window [title="MuseScore: Play Panel"] floating enable
-for_window [class="Nitrogen"] floating enable
-for_window [class="Xfce4-power-manager-settings"] floating enable
-for_window [class="octopi"] floating enable
-for_window [class="Pavucontrol"] floating enable
-for_window [class="qt5ct"] floating enable
-for_window [class="Qtconfig-qt4"] floating enable
-for_window [class="Simple-scan"] floating enable
-for_window [class="(?i)System-config-printer.py"] floating enable
-for_window [class="Skype"] floating enable
-for_window [class="Timeset-gui"] floating enable
-for_window [class="(?i)virtualbox"] floating enable
-for_window [class="Nm-connection-editor"] floating enable
-for_window [class="Nut-monitor"] floating enable
-for_window [class="Bitwarden"] floating enable
-for_window [class="helvum"] floating enable
+for_window [title="alsamixer"] floating enable border pixel 4
+for_window [class="calamares"] floating enable border pixel 4
+for_window [class="Clipgrab"] floating enable border pixel 4
+for_window [title="File Transfer*"] floating enable border pixel 4
+for_window [class="fpakman"] floating enable border pixel 4
+for_window [class="Galculator"] floating enable border pixel 4
+for_window [class="GParted"] floating enable border pixel 4
+for_window [class="TelegramDesktop"] floating enable border pixel 4
+for_window [class="Lightdm-settings"] floating enable border pixel 4
+for_window [class="Lxappearance"] floating enable border pixel 4
+for_window [class="Blueman-manager"] floating enable border pixel 4
+for_window [title="MuseScore: Play Panel"] floating enable border pixel 4
+for_window [class="Nitrogen"] floating enable border pixel 4
+for_window [class="Xfce4-power-manager-settings"] floating enable border pixel 4
+for_window [class="octopi"] floating enable border pixel 4
+for_window [class="Pavucontrol"] floating enable border pixel 4
+for_window [class="qt5ct"] floating enable border pixel 4
+for_window [class="Qtconfig-qt4"] floating enable border pixel 4
+for_window [class="Simple-scan"] floating enable border pixel 4
+for_window [class="(?i)System-config-printer.py"] floating enable border pixel 4
+for_window [class="Skype"] floating enable border pixel 4
+for_window [class="Timeset-gui"] floating enable border pixel 4
+for_window [class="(?i)virtualbox"] floating enable border pixel 4
+for_window [class="Nm-connection-editor"] floating enable border pixel 4
+for_window [class="Nut-monitor"] floating enable border pixel 4
+for_window [class="Bitwarden"] floating enable border pixel 4
+for_window [class="helvum"] floating enable border pixel 4
+for_window [class="google-chrome"] border pixel 4
+for_window [class="Google-chrome"] border pixel 4
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -268,14 +270,12 @@ exec --no-startup-id xfce4-power-manager --
 exec --no-startup-id /usr/bin/firejail-telegram
 exec --no-startup-id unclutter --
 exec --no-startup-id udev-notify --
-exec --no-startup-id psi-notify --
+exec --no-startup-id psi-notify
 exec --no-startup-id caffeine --
+exec --no-startup-id hushboard --
 exec_always --no-startup-id sbxkb --
-exec_always --no-startup-id autotiling --
-# exec --no-startup-id xsuspender
-exec --no-startup-id opensnitch-ui --
-# exec --no-startup-id DISPLAY=:%i emacs --fg-daemon
-# exec --no-startup-id urxvtd -q -o
+exec_always --no-startup-id autotiling
+exec --no-startup-id opensnitch-ui
 exec_always --no-startup-id /home/max/.config/i3/autostart
 
 # background $term_background
@@ -316,7 +316,7 @@ bar {
 	strip_workspace_numbers yes
 
     colors {
-        background #0F090C
+        background #000000
         statusline #f8f8f8
         separator  #dedede
 
