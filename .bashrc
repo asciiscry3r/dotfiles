@@ -187,7 +187,7 @@ alias sectools='yay -S rkhunter usbguard nmap pwgen acpica unhide etherape inetu
 # alias allowsniftraffic='sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap'
 # Git
 alias cleangit='git gc --prune=now --aggressive'
-alias reinstallfirmware='sudo fwupdmgr reinstall a45df35ac0e948ee180fe216a5f703f32dda163f'
+alias reinstallfirmware='sudo fwupdmgr reinstall {{ID}}'
 
 ## Copy and paste your key here with cat ~/.ssh/id_rsa.pub | xclip -sel clip .
 ## df --local -P | awk {'if (NR!=1) print $6'} | sudo xargs -I '{}' find '{}' -xdev -nouser
