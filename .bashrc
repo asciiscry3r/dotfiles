@@ -170,11 +170,11 @@ alias reinstallaur='sudo pacman -U --overwrite=* /home/max/Public/*.*.*.zst'
 alias cleancache='sudo pacman -Scc'
 alias removeunused='sudo pacman -Qtdq | sudo pacman -Rns -'
 alias genpassword='pwgen -csny 20 1 | xclip -sel clip'
-alias aideupdate='sudo aide --update > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.log --'
+# alias aideupdate='sudo aide --update > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.log --'
 alias installarchivers='yay -S arj cpio lha lrzip lzip lzop p7zip unarj unrar unzip xdg-utils zip zstd tar lz4 gzip bzip2 binutils'
 alias installgparted='yay -S gparted dosfstools jfsutils f2fs-tools exfatprogs reiserfsprogs udftools xfsprogs gpart mtools'
-alias installsoftware='yay -S emacs ansible tfenv potoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn'
-alias aidecheck='sudo aide --check > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.check.log --'
+alias installsoftware='yay -S emacs hushboard-git caffeine-ng watchexec sec dunst rxvt-unicode fortune-mod cowsay lolcat rkhunter usbguard nmap pwgen acpica unhide etherape inetutils ispell i3status pcmanfm gvfs xorg-server-xephyr xorg-xhost xorg-xrdb xorg-xkill lynis fwupd udisks2 redshift lxappearance ansible tfenv fotoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb opensnitch autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn htop strace audit apparmor firejail firefox pulseaudio pavucontrol pa-applet-git modprobed-db wireless-regdb mpv qt5-styleplugins'
+# alias aidecheck='sudo aide --check > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.check.log --'
 alias runetherape='sudo etherape -i any > /home/max/Logs/Net/networklog-$(date +%H%M%m%d%Y).log --'
 alias networkdiscovery='sudo nmap -sn 192.168.0.0/16'
 alias getdmesg='sudo dmesg -e > /home/max/Logs/Sys/dmesglog-$(date +%H%M%m%d%Y).log && sudo chown max:max -R /home/max/Logs'
@@ -183,21 +183,18 @@ alias runacpidump='mkdir -p /home/max/Logs/Acpi/$(date +%H%M%m%d%Y) && sudo acpi
 alias gitacpiupload='cd /home/max/Logs/Acpi/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias gitlogsupload='cd /home/max/Logs/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias gitauditupload='sudo cp -r /var/log/audit/ /home/max/Logs/Auditlogs/ && sudo chown max:max -R /home/max/Logs/Auditlogs && cd /home/max/Logs/Auditlogs && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
-alias sectools='yay -S rkhunter usbguard nmap pwgen acpica unhide etherape inetutils'
-# alias allowsniftraffic='sudo setcap cap_net_raw,cap_net_admin=eip /usr/bin/dumpcap'
-# Git
-alias cleangit='git gc --prune=now --aggressive'
-alias reinstallfirmware='sudo fwupdmgr reinstall {{ID}}'
+alias reinstallfirmware='sudo fwupdmgr reinstall a45df35ac0e948ee180fe216a5f703f32dda163f'
 
 ## Copy and paste your key here with cat ~/.ssh/id_rsa.pub | xclip -sel clip .
 ## df --local -P | awk {'if (NR!=1) print $6'} | sudo xargs -I '{}' find '{}' -xdev -nouser
 # Name
 echo -e "GRTD GNU/Linux\n
-Ukraine = Rus'
+
 Enemies in your devices always kill you.
 Run acpidump periodically.
 'watchexec -- "notify-send 'ALEEERT FUCKING TRIPLE PIRACY ATTACK'"'.
-Scientology = Russian collaboration."
+
+Scientology = is like in collaboration with russia and ..."
 
 # memes
 fortune | cowsay -f tux | lolcat
