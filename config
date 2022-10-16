@@ -47,16 +47,16 @@ bindsym $mod+Ctrl+m exec pavucontrol --
 bindsym $mod+F1 exec emacsclient -nc --
 bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging -enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan --
 # bindsym $mod+F2 exec /usr/bin/firejail-firefox
-bindsym $mod+F2 exec /usr/bin/firefox --disable-pinch --setDefaultBrowser --
+bindsym $mod+F2 exec LD_PRELOAD="/usr/lib/libhardened_malloc.so" /usr/bin/firefox --disable-pinch --setDefaultBrowser --
 # bindsym $mod+Shift+p exec /usr/bin/firejail-steam
 bindsym $mod+F3 exec pcmanfm --
 bindsym $mod+F4 exec urxvt -e 'htop'
 # bindsym $mod+Shift+F3 exec pkexec pcmanfm
 # bindsym $mod+F5 exec urxvt -e 'mocp'
 # bindsum $mod+Shift+t urxvt --no-startup-id /home/max/.scripts/transnot.sh
-bindsym $mod+t exec --no-startup-id pkill picom
-bindsym $mod+Ctrl+t exec --no-startup-id picom --experimental-backends -b --
+bindsym $mod+Ctrl+t exec --no-startup-id pkill picom; picom --experimental-backends -b --
 bindsym $mod+Shift+d --release exec dunstctl close-all && notify-send "All messages are closed"
+bindsym $mod+Shift+h --release exec dunstctl history-pop
 bindsym Print exec --no-startup-id teiler --
 # bindsym $mod+Print exec --no-startup-id scrot
 # bindsym $mod+Ctrl+k exec --no-startup-id xkill
