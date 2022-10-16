@@ -16,16 +16,29 @@ sleep 1
 
 # start userspace environmet utils
 
-redshift -t 6000:5000 -l 49.9627:33.6053 -- &
-
 DISPLAY=:%i emacs --fg-daemon -- &
 
-urxvtd -q -o &
+terminaldaemoncount=`pgrep urxvtd | wc -l` 
 
-firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit -- &
+if [ $terminaldaemoncount == 1 ]; then
+    notify-send "Terminal daemon is started"
+else
+    killall urxvtd
+    urxvtd -q -o &
+fi
 
 sleep 1
 
-# start apparmor parcer
+killall dunst; dunst -- &
+
+# firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit -- -- &
+
+sleep 1
+
+notify-send "Hello ${USER} - Start Redshift and AppArmor parcer"
+
+# start apparmor parces
+
+redshift -t 6000:5000 -l 49.9627:33.6053 -- &
 
 aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log &
