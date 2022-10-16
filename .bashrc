@@ -47,7 +47,6 @@ case ${TERM} in
 esac
 
 use_color=true
-export EDITOR=vim
 
 # Set colorful PS1 only on colorful terminals.
 # dircolors --print-database uses its own built-in database
@@ -173,7 +172,7 @@ alias genpassword='pwgen -csny 20 1 | xclip -sel clip'
 # alias aideupdate='sudo aide --update > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.log --'
 alias installarchivers='yay -S xarchiver arj cpio lha lrzip lzip lzop p7zip unarj unrar unzip xdg-utils zip zstd tar lz4 gzip bzip2 binutils'
 alias installgparted='yay -S gparted dosfstools jfsutils f2fs-tools exfatprogs reiserfsprogs udftools xfsprogs gpart mtools'
-alias installsoftware='yay -S xorg-xrandr libavtp pulseaudio-alsa hunspell hunspell-en_US tlp tlp-rdw ethtool smartmontools emacs hushboard-git caffeine-ng watchexec sec dunst rxvt-unicode fortune-mod cowsay lolcat rkhunter usbguard nmap pwgen acpica unhide etherape inetutils ispell i3status pcmanfm gvfs xorg-server-xephyr xorg-xhost xorg-xrdb xorg-xkill lynis fwupd udisks2 redshift lxappearance ansible tfenv fotoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb opensnitch autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn htop strace audit apparmor firejail firefox pulseaudio pavucontrol pa-applet-git modprobed-db wireless-regdb mpv qt5-styleplugins'
+alias installsoftware='yay -S meld tpm-tools trousers bolt xorg-xrandr xsel libavtp pulseaudio-alsa hunspell hunspell-en_US tlp tlp-rdw ethtool smartmontools emacs hushboard-git caffeine-ng watchexec sec dunst rxvt-unicode fortune-mod cowsay lolcat rkhunter usbguard nmap pwgen acpica unhide etherape inetutils ispell i3status pcmanfm gvfs xorg-server-xephyr xorg-xhost xorg-xrdb xorg-xkill lynis fwupd udisks2 redshift lxappearance ansible tfenv fotoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb opensnitch autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn htop strace audit apparmor firejail firefox pulseaudio pavucontrol pa-applet-git modprobed-db wireless-regdb mpv qt5-styleplugins'
 # alias aidecheck='sudo aide --check > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.check.log --'
 alias runetherape='sudo etherape -i any > /home/max/Logs/Net/networklog-$(date +%H%M%m%d%Y).log --'
 alias networkdiscovery='sudo nmap -sn 192.168.0.0/16'
