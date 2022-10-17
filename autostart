@@ -49,13 +49,13 @@ sleep 1
 
 killall dunst; LD_PRELOAD="/usr/lib/libhardened_malloc.so" dunst -- &
 
-dunstapparmor &
+# dunstapparmor &
 
 # firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit -- -- &
 
 sleep 1
 
-notify-send "hello ${USER} -_- start redshift and apparmor parcer"
+notify-send "hello ${USER} -_- \n start redshift and apparmor parcer"
 
 # start apparmor parces
 
