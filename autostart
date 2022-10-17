@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 dunstapparmor() {
-
     while true; do
 	dunstctl rule apparmor-display-skip disable
 	sleep 120
@@ -12,7 +11,7 @@ dunstapparmor() {
 	dunstctl rule apparmor-display-skip disable
 	dunstctl rule apparmor-display enable
 	dunstify 'apparmor notification for firefox enabled'
-    done    
+    done
 }
 
 # configure X
