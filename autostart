@@ -62,5 +62,3 @@ notify-send "hello ${USER} -_- start redshift and apparmor parcer"
 redshift -t 6000:5000 -l 49.9627:33.6053 -- &
 
 aa-notify -p -l -w 60 -f /var/log/audit/audit.log &
-
-echo $$ > /tmp/autostart_pid
