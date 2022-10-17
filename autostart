@@ -1,5 +1,19 @@
 #!/usr/bin/env bash
 
+dunstapparmor() {
+
+    dunstctl rule apparmor-display-skip disable
+    sleep 120
+    dunstctl rule apparmor-display disable
+    dunstctl rule apparmor-display-skip enable
+    dunstify 'AppArmor notification for Firefox temporary disabled'
+    sleep 6000
+    dunstctl rule apparmor-display-skip disable
+    dunstctl rule apparmor-display enable
+    dunstify 'AppArmor notification for Firefox enabled'
+
+}
+
 # configure X
 xset -b
 xset r rate 400 60
@@ -29,7 +43,9 @@ fi
 
 sleep 1
 
-killall dunst; dunst -- &
+killall dunst; LD_PRELOAD="/usr/lib/libhardened_malloc.so" dunst -- &
+
+dunstapparmor &
 
 # firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit -- -- &
 
@@ -41,4 +57,4 @@ notify-send "Hello ${USER} - Start Redshift and AppArmor parcer"
 
 redshift -t 6000:5000 -l 49.9627:33.6053 -- &
 
-aa-notify -p -s 1 -w 60 -f /var/log/audit/audit.log &
+aa-notify -p -l -w 60 -f /var/log/audit/audit.log &
