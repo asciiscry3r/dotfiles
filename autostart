@@ -2,16 +2,17 @@
 
 dunstapparmor() {
 
-    dunstctl rule apparmor-display-skip disable
-    sleep 120
-    dunstctl rule apparmor-display disable
-    dunstctl rule apparmor-display-skip enable
-    dunstify 'AppArmor notification for Firefox temporary disabled'
-    sleep 6000
-    dunstctl rule apparmor-display-skip disable
-    dunstctl rule apparmor-display enable
-    dunstify 'AppArmor notification for Firefox enabled'
-
+    while true; do
+	dunstctl rule apparmor-display-skip disable
+	sleep 120
+	dunstctl rule apparmor-display disable
+	dunstctl rule apparmor-display-skip enable
+	dunstify 'apparmor notification for firefox temporary disabled'
+	sleep 6000
+	dunstctl rule apparmor-display-skip disable
+	dunstctl rule apparmor-display enable
+	dunstify 'apparmor notification for firefox enabled'
+    done    
 }
 
 # configure X
@@ -35,7 +36,7 @@ DISPLAY=:%i emacs --fg-daemon -- &
 terminaldaemoncount=`pgrep urxvtd | wc -l` 
 
 if [ $terminaldaemoncount == 1 ]; then
-    notify-send "Terminal daemon is started"
+    notify-send "terminal daemon is started"
 else
     killall urxvtd
     urxvtd -q -o &
@@ -51,7 +52,7 @@ dunstapparmor &
 
 sleep 1
 
-notify-send "Hello ${USER} - Start Redshift and AppArmor parcer"
+notify-send "hello ${USER} -_- start redshift and apparmor parcer"
 
 # start apparmor parces
 
