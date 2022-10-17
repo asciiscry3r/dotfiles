@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
+ps aux | grep '/usr/bin/bash /home/max/.config/i3/autostart' | awk '{print $2}' | xargs kill
+
 dunstapparmor() {
     while true; do
+	ps aux | grep 'sleep 150' | awk '{print $2}' | xargs kill
+	ps aux | grep 'sleep 6000' | awk '{print $2}' | xargs kill
 	dunstctl rule apparmor-display-skip disable
-	sleep 120
+	sleep 150
 	dunstctl rule apparmor-display disable
 	dunstctl rule apparmor-display-skip enable
 	dunstify 'apparmor notification for firefox temporary disabled'
@@ -58,3 +62,5 @@ notify-send "hello ${USER} -_- start redshift and apparmor parcer"
 redshift -t 6000:5000 -l 49.9627:33.6053 -- &
 
 aa-notify -p -l -w 60 -f /var/log/audit/audit.log &
+
+echo $$ > /tmp/autostart_pid
