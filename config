@@ -50,7 +50,6 @@ bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-ma
 bindsym $mod+F2 exec LD_PRELOAD="/usr/lib/libhardened_malloc.so" /usr/bin/firefox --disable-pinch --setDefaultBrowser --
 # bindsym $mod+Shift+p exec /usr/bin/firejail-steam
 bindsym $mod+F3 exec pcmanfm --
-bindsym $mod+F4 exec urxvt -e 'htop'
 # bindsym $mod+Shift+F3 exec pkexec pcmanfm
 # bindsym $mod+F5 exec urxvt -e 'mocp'
 # bindsum $mod+Shift+t urxvt --no-startup-id /home/max/.scripts/transnot.sh
@@ -274,7 +273,7 @@ exec --no-startup-id udev-notify --
 exec --no-startup-id psi-notify
 exec --no-startup-id caffeine --
 exec --no-startup-id hushboard --
-exec_always --no-startup-id sbxkb --
+exec_always --no-startup-id killall sbxkb; sbxkb --
 exec_always --no-startup-id autotiling
 exec --no-startup-id opensnitch-ui
 exec_always --no-startup-id /home/max/.config/i3/autostart
