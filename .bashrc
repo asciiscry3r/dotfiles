@@ -5,6 +5,11 @@
 
 umask 027
 
+export QT_QPA_PLATFORMTHEME=gtk2
+export EDITOR=vim
+# export LD_PRELOAD="/usr/lib/libhardened_malloc.so"
+export TERM=xterm
+
 [[ $- != *i* ]] && return
 
 colors() {
@@ -164,26 +169,29 @@ function emacs {
     setsid emacsclient -n -a /usr/bin/emacs ${args[*]}
 }
 
-alias reinstallall='sudo pacman -Qqn | sudo pacman -S --overwrite=* -'
-alias reinstallaur='sudo pacman -U --overwrite=* /home/max/Public/*.*.*.zst'
+alias check_software='sudo paccheck --md5sum --quiet'
+alias reinstall_all='sudo pacman -Qqn | sudo pacman -S --overwrite=* -'
+alias reinstall_install_aur='yay -S --removemake --overwrite=* ace acpitool alien_package_converter amttool-tng autotiling caffeine-ng cbonsai cpufetch debhelper debtap fotoxx google-chrome gtk-theme-windows10-dark hardened_malloc hushboard-git i3lock-color icoextract imagewriter imgurbash2 intelmetool-git intltool-debian libcurl-openssl-1.0 libestr libxerces-c-3.1 matplotlib-cpp-git mei-amt-check-git modprobed-db nerd-fonts-terminus nerd-fonts-ubuntu-mono numix-circle-icon-theme-git numix-icon-theme-git opencryptoki opensnitch-ebpf-module-git opensnitch-git pa-applet-git picom-tryone-git po-debconf psi-notify pstreams python-pulsectl python-pyasn qt5-styleplugins redeclipse rpi-imager-bin sblim-sfcc sddm-lain-wired-theme sec siji-ttf teiler-git telegram-desktop-bin tpm-tools trousers ttf-unifont tfenv udev-notify undistract-me-git ventoy-bin wireshark-gtk2 xbindkeys_config-gtk2 xininfo-git xsuspender-git yay-bin'
+
+# linux-clear linux-clear-headers nouveau-fw linux-frimware
+
 alias cleancache='sudo pacman -Scc'
 alias removeunused='sudo pacman -Qtdq | sudo pacman -Rns -'
 alias genpassword='pwgen -csny 20 1 | xclip -sel clip'
-# alias aideupdate='sudo aide --update > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.log --'
 alias installarchivers='yay -S xarchiver arj cpio lha lrzip lzip lzop p7zip unarj unrar unzip xdg-utils zip zstd tar lz4 gzip bzip2 binutils'
 alias installgparted='yay -S gparted dosfstools jfsutils f2fs-tools exfatprogs reiserfsprogs udftools xfsprogs gpart mtools'
-alias installsoftware='yay -S meld tpm-tools trousers bolt xorg-xrandr xsel libavtp pulseaudio-alsa hunspell hunspell-en_US tlp tlp-rdw ethtool smartmontools emacs hushboard-git caffeine-ng watchexec sec dunst rxvt-unicode fortune-mod cowsay lolcat rkhunter usbguard nmap pwgen acpica unhide etherape inetutils ispell i3status pcmanfm gvfs xorg-server-xephyr xorg-xhost xorg-xrdb xorg-xkill lynis fwupd udisks2 redshift lxappearance ansible tfenv fotoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb opensnitch autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn htop strace audit apparmor firejail firefox pulseaudio pavucontrol pa-applet-git modprobed-db wireless-regdb mpv qt5-styleplugins'
-# alias aidecheck='sudo aide --check > /home/max/Logs/Aide/$(date +%H%M%m%d%Y).aide.check.log --'
+alias installsoftware='yay -S base-devel glxinfo prime intel-media-driver libva-mesa-driver mesa-vdpau meld tpm-tools trousers bolt xorg-xrandr xsel dmidecode libavtp pulseaudio-alsa hunspell hunspell-en_US tlp tlp-rdw ethtool smartmontools emacs hushboard-git caffeine-ng watchexec sec dunst rxvt-unicode fortune-mod cowsay lolcat rkhunter usbguard nmap pwgen acpica unhide etherape inetutils ispell i3status pcmanfm gvfs xorg-server-xephyr xorg-xhost xorg-xrdb xorg-xkill lynis fwupd udisks2 redshift lxappearance ansible fotoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb opensnitch autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn htop strace audit apparmor firejail firefox pulseaudio pavucontrol pa-applet-git modprobed-db wireless-regdb mpv qt5-styleplugins'
 alias runetherape='sudo etherape -i any > /home/max/Logs/Net/networklog-$(date +%H%M%m%d%Y).log --'
-alias networkdiscovery='sudo nmap -sn 192.168.0.0/16'
 alias getdmesg='sudo dmesg -e > /home/max/Logs/Sys/dmesglog-$(date +%H%M%m%d%Y).log && sudo chown max:max -R /home/max/Logs'
 alias runrkhunter='sudo rkhunter --skip-keypress --check --enable additional_rkts,apps,attributes,avail_modules,deleted_files,filesystem,group_accounts,group_changes,hashes,hidden_ports,hidden_procs,immutable,ipc_shared_mem,known_rkts,loaded_modules,local_host,login_backdoors,malware,network,os_specific,packet_cap_apps,passwd_changes,ports,possible_rkt_files,possible_rkt_strings,promisc,properties,rootkits,running_procs,scripts,shared_libs,shared_libs_path,sniffer_logs,startup_files,startup_malware,strings,susp_dirs,suspscan,system_commands,system_configs,system_configs_ssh,system_configs_syslog,tripwire,trojans --logfile /home/max/Logs/Sec/rkhunter-$(date +%H%M%m%d%Y).log && sudo chown max:max -R /home/max/Logs/Sec'
 alias runacpidump='mkdir -p /home/max/Logs/Acpi/$(date +%H%M%m%d%Y) && sudo acpidump > /home/max/Logs/Acpi/$(date +%H%M%m%d%Y)/$(date +%H%M%m%d%Y)'
 alias gitacpiupload='cd /home/max/Logs/Acpi/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias gitlogsupload='cd /home/max/Logs/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias gitauditupload='sudo cp -r /var/log/audit/ /home/max/Logs/Auditlogs/ && sudo chown max:max -R /home/max/Logs/Auditlogs && cd /home/max/Logs/Auditlogs && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
-alias reinstallfirmware='sudo fwupdmgr reinstall a45df35ac0e948ee180fe216a5f703f32dda163f'
-
+alias reinstall_firmware='sudo fwupdmgr reinstall a45df35ac0e948ee180fe216a5f703f32dda163f'
+alias primerun='DRI_PRIME=1'
+## echo powersave > /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+## display power manager - xset dpms force on
 ## Copy and paste your key here with cat ~/.ssh/id_rsa.pub | xclip -sel clip .
 ## df --local -P | awk {'if (NR!=1) print $6'} | sudo xargs -I '{}' find '{}' -xdev -nouser
 # Name
@@ -191,7 +199,6 @@ echo -e "GRTD GNU/Linux\n
 
 Enemies in your devices always kill you.
 Run acpidump periodically.
-'watchexec -- "notify-send 'ALEEERT FUCKING TRIPLE PIRACY ATTACK'"'.
 
 Scientology = is like in collaboration with russia against ukraine and ..."
 
@@ -200,3 +207,5 @@ fortune | cowsay -f tux | lolcat
 
 source /etc/profile.d/undistract-me.sh
 notify_when_long_running_commands_finish_install
+
+alias todo='echo "watchexec -- notify-send ALEEERT FUCKING TRIPLE PIRACY ATTACK"'
