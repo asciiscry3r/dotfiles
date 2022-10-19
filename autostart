@@ -47,7 +47,9 @@ fi
 
 sleep 1
 
-killall dunst; LD_PRELOAD="/usr/lib/libhardened_malloc.so" dunst -- &
+killall picom; picom -b -- &
+
+killall dunst; dunst -- &
 
 # dunstapparmor &
 
