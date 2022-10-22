@@ -172,7 +172,7 @@ function emacs {
 alias check_software='sudo paccheck --md5sum --quiet'
 alias reinstall_all='sudo pacman -Qqn | sudo pacman -S --overwrite=* -'
 alias reinstall_install_aur='yay -S --removemake --overwrite=* ace acpitool alien_package_converter amttool-tng autotiling caffeine-ng cbonsai cpufetch debhelper debtap fotoxx google-chrome gtk-theme-windows10-dark hardened_malloc hushboard-git i3lock-color icoextract imagewriter imgurbash2 intltool-debian libcurl-openssl-1.0 libestr libxerces-c-3.1 matplotlib-cpp-git mei-amt-check-git modprobed-db nerd-fonts-terminus nerd-fonts-ubuntu-mono numix-circle-icon-theme-git numix-icon-theme-git opencryptoki pa-applet-git picom-tryone-git po-debconf psi-notify pstreams python-pulsectl python-pyasn qt5-styleplugins redeclipse rpi-imager-bin sblim-sfcc sddm-lain-wired-theme sec siji-ttf teiler-git telegram-desktop-bin tpm-tools trousers ttf-unifont tfenv undistract-me-git ventoy-bin wireshark-gtk2 xbindkeys_config-gtk2 xininfo-git xsuspender-git yay-bin'
-alias reinstall_kernel='yay -S  --overwrite=* linux-clear-bin linux-clear-headers-bin intel-ucode-clear'
+alias reinstall_install_intel_kernel='yay -S  --overwrite=* linux-clear-bin linux-clear-headers-bin intel-ucode-clear'
 # linux-clear linux-clear-headers nouveau-fw linux-firmware baudline-bin udev-notify opensnitch-ebpf-module-git opensnitch-git
 
 alias cleancache='sudo pacman -Scc'
