@@ -183,13 +183,21 @@ alias install_gparted='yay -S gparted dosfstools jfsutils f2fs-tools exfatprogs 
 alias install_software='yay -S i3wm-gaps openshot base-devel glxinfo prime intel-media-driver sddm libva-mesa-driver mesa-vdpau meld bolt xorg-xrandr xsel dmidecode libavtp pulseaudio-alsa hunspell hunspell-en_US tlp tlp-rdw ethtool smartmontools emacs hushboard-git caffeine-ng watchexec sec dunst rxvt-unicode fortune-mod cowsay lolcat rkhunter usbguard nmap pwgen acpica unhide etherape inetutils ispell i3status pcmanfm gvfs xorg-xwininfo xorg-server-xephyr xorg-xhost xorg-xrdb xorg-xkill lynis fwupd udisks2 redshift lxappearance ansible fotoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn htop strace audit apparmor firejail firefox pulseaudio pavucontrol pa-applet-git modprobed-db wireless-regdb mpv qt5-styleplugins'
 alias runetherape='sudo etherape -i any > /home/max/Logs/Net/networklog-$(date +%H%M%m%d%Y).log --'
 alias getdmesg='sudo dmesg -e > /home/max/Logs/Sys/dmesglog-$(date +%H%M%m%d%Y).log && sudo chown max:max -R /home/max/Logs'
-alias runrkhunter='sudo rkhunter --skip-keypress --check --enable additional_rkts,apps,attributes,avail_modules,deleted_files,filesystem,group_accounts,group_changes,hashes,hidden_ports,hidden_procs,immutable,ipc_shared_mem,known_rkts,loaded_modules,local_host,login_backdoors,malware,network,os_specific,packet_cap_apps,passwd_changes,ports,possible_rkt_files,possible_rkt_strings,promisc,properties,rootkits,running_procs,scripts,shared_libs,shared_libs_path,sniffer_logs,startup_files,startup_malware,strings,susp_dirs,suspscan,system_commands,system_configs,system_configs_ssh,system_configs_syslog,tripwire,trojans --logfile /home/max/Logs/Sec/rkhunter-$(date +%H%M%m%d%Y).log && sudo chown max:max -R /home/max/Logs/Sec'
+alias runrkhunter='sudo rkhunter --skip-keypress --check --enable additional_rkts,apps,attributes,avail_modules,deleted_files,filesystem,group_accounts,group_changes,hashes,hidden_ports,hidden_procs,immutable,ipc_shared_mem,known_rkts,loaded_modules,local_host,login_backdoors,malware,network,os_specific,packet_cap_apps,passwd_changes,ports,possible_rkt_files,possible_rkt_strings,promisc,properties,rootkits,running_procs,scripts,shared_libs,shared_libs_path,sniffer_logs,startup_files,startup_malware,strings,susp_dirs,suspscan,system_commands,system_configs,system_configs_ssh,system_configs_syslog,tripwire,trojans --logfile /home/max/Logs/Sec/rkhunter-$(date +%H%M%m%d%Y).log && gsudo chown max:max -R /home/max/Logs/Sec'
 alias runacpidump='mkdir -p /home/max/Logs/Acpi/$(date +%H%M%m%d%Y) && sudo acpidump > /home/max/Logs/Acpi/$(date +%H%M%m%d%Y)/$(date +%H%M%m%d%Y)'
 alias gitacpiupload='cd /home/max/Logs/Acpi/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias gitlogsupload='cd /home/max/Logs/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias gitauditupload='sudo cp -r /var/log/audit/ /home/max/Logs/Auditlogs/ && sudo chown max:max -R /home/max/Logs/Auditlogs && cd /home/max/Logs/Auditlogs && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias reinstall_firmware='sudo fwupdmgr reinstall a45df35ac0e948ee180fe216a5f703f32dda163f'
 alias primerun='DRI_PRIME=1'
+#
+# PrivateTmp=true
+# ProtectControlGroups=true
+# ProtectHome=true
+# ProtectKernelTunables=true
+# ProtectSystem=full
+#
+#
 ## echo powersave > /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 ## display power manager - xset dpms force on
 ## Copy and paste your key here with cat ~/.ssh/id_rsa.pub | xclip -sel clip .
