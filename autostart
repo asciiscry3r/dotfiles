@@ -51,9 +51,11 @@ fi
 
 sleep 1
 
-killall picom; picom -b -- &
+killall sbxkb && sbxkb --
 
-killall dunst; dunst -- &
+killall picom && picom -b -- &
+
+killall dunst && dunst -- &
 
 # dunstapparmor &
 
