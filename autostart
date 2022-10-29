@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-# ps aux | grep '/usr/bin/bash /home/max/.config/i3/autostart' | awk '{print $2}' | xargs kill
 
 dunstapparmor() {
     while true; do
@@ -51,7 +50,7 @@ fi
 
 sleep 1
 
-killall sbxkb; sbxkb --
+killall sbxkb; sbxkb -- &
 
 killall picom; picom -b -- &
 
