@@ -32,7 +32,7 @@ killall redshift
 
 flameshot &
 
-killall pasystray && pasystray -- &
+killall pasystray; pasystray -- &
 
 sleep 1
 
@@ -51,11 +51,11 @@ fi
 
 sleep 1
 
-killall sbxkb && sbxkb --
+killall sbxkb; sbxkb --
 
-killall picom && picom -b -- &
+killall picom; picom -b -- &
 
-killall dunst && dunst -- &
+killall dunst; dunst -- &
 
 # dunstapparmor &
 
