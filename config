@@ -273,8 +273,7 @@ exec --no-startup-id udev-notify --
 exec --no-startup-id psi-notify
 exec --no-startup-id caffeine --
 exec --no-startup-id hushboard --
-exec_always --no-startup-id killall sbxkb; sbxkb --
-exec_always --no-startup-id autotilin
+exec_always --no-startup-id autotiling
 exec_always --no-startup-id flashfocus --
 exec --no-startup-id opensnitch-ui
 exec_always --no-startup-id /home/max/.config/i3/autostart
@@ -399,5 +398,3 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
-# FSCIM
