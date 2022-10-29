@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ps aux | grep '/usr/bin/bash /home/max/.config/i3/autostart' | awk '{print $2}' | xargs kill
+# ps aux | grep '/usr/bin/bash /home/max/.config/i3/autostart' | awk '{print $2}' | xargs kill
 
 dunstapparmor() {
     while true; do
