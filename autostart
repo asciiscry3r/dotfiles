@@ -28,10 +28,10 @@ setxkbmap -layout us,ru,ua
 setxkbmap -option grp:alt_shift_toggle
 
 killall redshift
-
-flameshot &
-
-killall pasystray; pasystray -- &
+killall sbxkb
+killall pasystray
+killall picom
+killall dunst
 
 sleep 1
 
@@ -48,13 +48,14 @@ else
     urxvtd -q -o &
 fi
 
-sleep 1
+sbxkb -- &
+flameshot &
+pasystray -- &
+picom -b -- &
 
-killall sbxkb; sbxkb -- &
+notify-send "skxkb, flameshot, pasystray, picom is started"
 
-killall picom; picom -b -- &
-
-killall dunst; dunst -- &
+# killall dunst; dunst -- &
 
 # dunstapparmor &
 
