@@ -53,7 +53,7 @@ bindsym $mod+F3 exec pcmanfm --
 # bindsym $mod+Shift+F3 exec pkexec pcmanfm
 # bindsym $mod+F5 exec urxvt -e 'mocp'
 # bindsum $mod+Shift+t urxvt --no-startup-id /home/max/.scripts/transnot.sh
-bindsym $mod+Ctrl+t exec --no-startup-id pkill picom; picom --experimental-backends -b --
+# bindsym $mod+Ctrl+t exec --no-startup-id pkill picom; picom --experimental-backends -b --
 bindsym $mod+Shift+d --release exec dunstctl close-all && notify-send "all messages are closed"
 bindsym $mod+Shift+h --release exec dunstctl history-pop
 bindsym Print exec --no-startup-id teiler --
