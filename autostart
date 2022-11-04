@@ -56,10 +56,11 @@ DISPLAY=:%i emacs --fg-daemon -- &
 terminaldaemoncount=`pgrep urxvtd | wc -l` 
 
 if [ $terminaldaemoncount == 1 ]; then
-    notify-send "terminal daemon is started"
+    notify-send "terminal daemon is already running"
 else
     killall urxvtd
     urxvtd -q -o &
+    notify-send "terminal daemon is started"
 fi
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 -- &
