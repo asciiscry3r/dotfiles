@@ -27,6 +27,7 @@ sleep 1
 setxkbmap -layout us,ru,ua
 setxkbmap -option grp:alt_shift_toggle
 
+killall pulseaudio
 killall /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 killall nitrogen
 killall nm-applet
@@ -43,6 +44,7 @@ killall redshift
 killall sbxkb
 killall pasystray
 killall picom
+killall pa-applet
 killall dunst
 
 sleep 1
@@ -74,6 +76,7 @@ flashfocus -- &
 opensnitch-ui &
 sbxkb -- &
 flameshot &
+pa-applet -- &
 pasystray -- &
 picom -b -- &
 
