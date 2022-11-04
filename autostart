@@ -27,6 +27,18 @@ sleep 1
 setxkbmap -layout us,ru,ua
 setxkbmap -option grp:alt_shift_toggle
 
+killall /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+killall nitrogen
+killall nm-applet
+killall xfce4-power-manager
+killall unclutter
+killall udev-notify
+killall psi-notify
+killall caffeine
+killall hushboard
+killall autotiling
+killall flashfocus
+killall opensnitch-ui
 killall redshift
 killall sbxkb
 killall pasystray
@@ -48,6 +60,18 @@ else
     urxvtd -q -o &
 fi
 
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 -- &
+nitrogen --restore
+nm-applet -- &
+xfce4-power-manager -- &
+unclutter -- &
+udev-notify -- &
+psi-notify &
+caffeine -- &
+hushboard -- &
+autotiling &
+flashfocus -- &
+opensnitch-ui &
 sbxkb -- &
 flameshot &
 pasystray -- &
