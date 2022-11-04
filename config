@@ -11,11 +11,6 @@ default_floating_border pixel 4
 # Hide borders
 hide_edge_borders none
 
-# change borders ?????
-# bindsym $mod+u border none
-# bindsym $mod+y border pixel 1
-# bindsym $mod+n border normal
-
 # Font for window titles. Will also be used by the bar unless a different font
 font xft:Terminess Nerd Font Mono:style=Regular 9
 
@@ -29,7 +24,7 @@ bindsym $mod+Return exec urxvtc -fn xft:TerminessTTFNerdFontMono
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show drun --
+bindsym $mod+d exec --no-startup-id rofi -show drun -- &
 # -modi "window,run,ssh,windowcd,drun,combi,keys,filebrowser,teiler:/usr/bin/teiler"
 
 ###############################################################################
@@ -42,21 +37,14 @@ bindsym $mod+Ctrl+m exec pavucontrol -- &
 
 # Start Applications sandbox --x11
 # /usr/local/bin/google-chrome-libjemalloc.sh
-bindsym $mod+F1 exec emacsclient -nc --
-bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging --enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan --
+bindsym $mod+F1 exec emacsclient -nc -- &
+bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging --enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan -- &
 bindsym $mod+F2 exec /usr/bin/firejail-firefox
-# bindsym $mod+F2 exec LD_PRELOAD="/usr/lib/libhardened_malloc.so" /usr/bin/firefox --disable-pinch --setDefaultBrowser --
-# bindsym $mod+Shift+p exec /usr/bin/firejail-steam
-bindsym $mod+F3 exec pcmanfm --
-# bindsym $mod+Shift+F3 exec pkexec pcmanfm
-# bindsym $mod+F5 exec urxvt -e 'mocp'
-# bindsum $mod+Shift+t urxvt --no-startup-id /home/max/.scripts/transnot.sh
-# bindsym $mod+Ctrl+t exec --no-startup-id pkill picom; picom --experimental-backends -b --
+bindsym $mod+F3 exec pcmanfm -- &
 bindsym $mod+Shift+d --release exec dunstctl close-all && notify-send "all messages are closed"
 bindsym $mod+Shift+h --release exec dunstctl history-pop
-bindsym Print exec --no-startup-id teiler --
-# bindsym $mod+Print exec --no-startup-id scrot
-# bindsym $mod+Ctrl+k exec --no-startup-id xkill
+bindsym Print exec --no-startup-id teiler -- &
+bindsym --release $mod+Shift+x exec xkill
 
 # focus_follows_mouse no
 
