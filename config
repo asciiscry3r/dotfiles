@@ -24,26 +24,26 @@ bindsym $mod+Return exec urxvtc -fn xft:TerminessTTFNerdFontMono
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id rofi -show drun -- &
+bindsym $mod+d exec --no-startup-id rofi -show drun &
 # -modi "window,run,ssh,windowcd,drun,combi,keys,filebrowser,teiler:/usr/bin/teiler"
 
 ###############################################################################
 ## sound-section ##############################################################
 ###############################################################################
 
-bindsym $mod+Ctrl+m exec pavucontrol -- &
+bindsym $mod+Ctrl+m exec pavucontrol &
 
 ###############################################################################
 
 # Start Applications sandbox --x11
 # /usr/local/bin/google-chrome-libjemalloc.sh
-bindsym $mod+F1 exec emacsclient -nc -- &
-bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging --enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan -- &
+bindsym $mod+F1 exec emacsclient -nc &
+bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging --enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan &
 bindsym $mod+F2 exec /usr/bin/firejail-firefox
-bindsym $mod+F3 exec pcmanfm -- &
+bindsym $mod+F3 exec pcmanfm &
 bindsym $mod+Shift+d --release exec dunstctl close-all && notify-send "all messages are closed"
 bindsym $mod+Shift+h --release exec dunstctl history-pop
-bindsym Print exec --no-startup-id teiler -- &
+bindsym Print exec --no-startup-id teiler &
 bindsym --release $mod+Shift+x exec xkill
 
 # focus_follows_mouse no
@@ -245,18 +245,18 @@ mode "resize" {
 # Lock screen
 
 # Autostart applications
-# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 -- &
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 # exec --no-startup-id nitrogen --restore
-# exec --no-startup-id nm-applet -- &
-# exec --no-startup-id xfce4-power-manager -- &
+# exec --no-startup-id nm-applet &
+# exec --no-startup-id xfce4-power-manager &
 exec --no-startup-id /usr/bin/firejail-telegram
-# exec --no-startup-id unclutter -- &
-# exec --no-startup-id udev-notify -- &
+# exec --no-startup-id unclutter &
+# exec --no-startup-id udev-notify &
 # exec --no-startup-id psi-notify &
-# exec --no-startup-id caffeine -- &
-# exec --no-startup-id hushboard -- &
+# exec --no-startup-id caffeine &
+# exec --no-startup-id hushboard &
 # exec_always --no-startup-id autotiling &
-# exec_always --no-startup-id flashfocus -- &
+# exec_always --no-startup-id flashfocus &
 # exec --no-startup-id opensnitch-ui &
 exec_always --no-startup-id /home/max/.config/i3/autostart
 
