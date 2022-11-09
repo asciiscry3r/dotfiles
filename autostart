@@ -43,6 +43,7 @@ killall opensnitch-ui
 killall redshift
 killall sbxkb
 killall pasystray
+killall flameshot
 killall picom
 killall pa-applet
 killall dunst
@@ -51,7 +52,7 @@ sleep 1
 
 # start userspace environmet utils
 
-DISPLAY=:%i emacs --fg-daemon -- &
+DISPLAY=:%i emacs --fg-daemon &
 
 terminaldaemoncount=`pgrep urxvtd | wc -l` 
 
@@ -63,31 +64,31 @@ else
     notify-send "terminal daemon is started"
 fi
 
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 -- &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nitrogen --restore
-nm-applet -- &
-xfce4-power-manager -- &
-unclutter -- &
-udev-notify -- &
+nm-applet &
+xfce4-power-manager &
+unclutter &
+udev-notify &
 psi-notify &
-caffeine -- &
-hushboard -- &
+caffeine &
+hushboard &
 autotiling &
-flashfocus -- &
+flashfocus &
 opensnitch-ui &
-sbxkb -- &
+sbxkb &
 flameshot &
-pa-applet -- &
-pasystray -- &
-picom -b -- &
+pa-applet &
+pasystray &
+picom -b &
 
 notify-send "skxkb, flameshot, pasystray, picom is started"
 
-# killall dunst; dunst -- &
+# killall dunst; dunst &
 
 # dunstapparmor &
 
-# firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit -- -- &
+# firejail --noroot --apparmor --seccomp --name=clipit /usr/bin/clipit &
 
 sleep 1
 
@@ -96,6 +97,6 @@ notify-send "hello ${USER} -_-
 
 # start apparmor parces
 
-redshift -t 6000:5000 -l 49.9627:33.6053 -- &
+redshift -t 6000:5000 -l 49.9627:33.6053 &
 
 aa-notify -p -l -w 60 -f /var/log/audit/audit.log &
