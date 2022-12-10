@@ -193,9 +193,10 @@ Note that a new bug is preferred over adding your GPU crash dump to an already o
     xrandr --verbose > /home/max/Downloads/Intel_reporting/xrandr-$(date +%H%M%m%d%Y).intel.log
 }
 
+alias filesystem_defragment='btrfs filesystem defragment -r -v -czstd /'
 alias send_i3_debug_log='DISPLAY=:0 i3-dump-log | bzip2 -c | curl --data-binary @- https://logs.i3wm.org'
 alias check_software='sudo paccheck --md5sum --quiet'
-alias reinstall_all='sudo pacman -Qqn | sudo pacman -S --overwrite=* - &&  sudo pacman -U ~/Development/*.zst'
+alias reinstall_all='sudo pacman -Qqn | sudo pacman -S --overwrite=* - && sudo pacman -U ~/Development/*.pkg.*'
 alias reinstall_install_aur='yay -S --removemake --overwrite=* ace qt5-styleplugins acpitool alien_package_converter amttool-tng autotiling caffeine-ng cbonsai cpufetch debhelper debtap fotoxx google-chrome gtk-theme-windows10-dark hardened_malloc hushboard-git i3lock-color icoextract imagewriter imgurbash2 intltool-debian libcurl-openssl-1.0 libestr libxerces-c-3.1 matplotlib-cpp-git mei-amt-check-git modprobed-db numix-circle-icon-theme-git numix-icon-theme-git opencryptoki pa-applet-git picom-tryone-git po-debconf psi-notify pstreams python-pulsectl python-pyasn qt5-styleplugins redeclipse rpi-imager-bin sblim-sfcc sddm-lain-wired-theme sec siji-ttf teiler-git telegram-desktop-bin tpm-tools trousers ttf-unifont tfenv undistract-me-git ventoy-bin wireshark-gtk2 xbindkeys_config-gtk2 xininfo-git xsuspender-git yay-bin'
 alias reinstall_install_intel_kernel='yay -S  --overwrite=* linux-clear-bin linux-clear-headers-bin intel-ucode-clear'
 # linux-clear linux-clear-headers nouveau-fw linux-firmware baudline-bin opensnitch-ebpf-module-git opensnitch-git nvidia-dkms nvidia-prime
@@ -212,7 +213,7 @@ alias runacpidump='mkdir -p /home/max/Downloads/Logs/Acpi/$(date +%H%M%m%d%Y) &&
 alias gitacpiupload='cd /home/max/Downloads/Logs/Acpi/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias gitlogsupload='cd /home/max/Downloads/Logs/ && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
 alias gitauditupload='sudo cp -r /var/log/audit/ /home/max/Downloads/Logs/Auditlogs/ && sudo chown max:max -R /home/max/Downloads/Logs/Auditlogs && cd /home/max/Downloads/Logs/Auditlogs && pwd && git add . && git commit -am $(date +%H%M%m%d%Y) && git push'
-alias reinstall_firmware='sudo fwupdmgr reinstall a45df35ac0e948ee180fe216a5f703f32dda163f'
+alias reinstall_firmware='sudo yay -S grub && sudo grub-install && sudo sudo grub-mkconfig -o /boot/grub/grub.cfg && sudo fwupdmgr reinstall a45df35ac0e948ee180fe216a5f703f32dda163f'
 alias primerun='DRI_PRIME=1'
 #
 # PrivateTmp=true
