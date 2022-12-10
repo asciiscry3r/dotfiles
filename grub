@@ -3,7 +3,8 @@
 GRUB_DEFAULT=0
 GRUB_TIMEOUT=5
 GRUB_DISTRIBUTOR="Arch"
-GRUB_CMDLINE_LINUX_DEFAULT='resume=UUID=838392f8-80b9-44d6-ba89-523d8312e10b loglevel=3 audit=0 lsm=landlock,lockdown,yama,apparmor,bpf l1tf=full,force mds=full,nosmt mitigations=auto,nosmt nosmt=force pcie_aspm=force init_on_alloc=1 init_on_free=1 randomize_kstack_offset=on slab_nomerge pti=on slub_debug=ZF slub_debug=P page_poison=1 fsck.mode=force fsck.repair=yes i915.modeset=1 i915.fastboot=1 i915.enable_fbc=1 acpi_osi="!Windows 2012" iommu.strict=1 intremap=on pci.nobios=1'
+GRUB_CMDLINE_LINUX_DEFAULT="rd.udev.log_priority=3 vt.global_cursor_default=0 loglevel=3 audit=1 console=tty0 console=ttys0,115200n0 kvm-intel.nested=1 no_timer_check noreplace-smp page_alloc.shuffle=1 rcupdate.rcu_expedited=1 rootfstype=btrfs tsc=reliable lsm=yama,safesetid,integrity,landlock,lockdown,apparmor,bpf l1tf=full,force mds=full,nosmt mitigations=auto,nosmt nosmt=force pcie_aspm=force init_on_alloc=1 init_on_free=1 vsyscall=none mce=0 debugfs=off randomize_kstack_offset=on slab_nomerge pti=on slub_debug=ZF slub_debug=P page_owner=on page_poison=on fsck.mode=force fsck.repair=yes 915.modeset=1 i915.fastboot=1 i915.enable_fbc=1 i915.edp_vswing=2 iommu.strict=1 intremap=on intel_iommu=igfx_off efi=disable_early_pci_dma retbleed=ibpb spectre_v2=ibrs pci=use_crs"
+# pci.nobios=1'
 GRUB_CMDLINE_LINUX=""
 
 # Preload both GPT and MBR modules so that they are not missed
