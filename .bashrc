@@ -149,7 +149,6 @@ ex ()
 xset -b
 xset r rate 400 60
 xhost -
-
 mesg n
 
 # xhost +local:root > /dev/null 2>&1
