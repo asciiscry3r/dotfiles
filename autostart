@@ -27,6 +27,8 @@ sleep 1
 setxkbmap -layout us,ru,ua
 setxkbmap -option grp:alt_shift_toggle
 
+killall telegram-desktop
+killall liferea
 killall pulseaudio
 killall /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 killall nitrogen
@@ -56,13 +58,13 @@ DISPLAY=:%i emacs --fg-daemon &
 
 terminaldaemoncount=`pgrep urxvtd | wc -l` 
 
-if [ $terminaldaemoncount == 1 ]; then
-    notify-send "terminal daemon is already running"
-else
-    killall urxvtd
-    urxvtd -q -o &
-    notify-send "terminal daemon is started"
-fi
+#if [ $terminaldaemoncount == 1 ]; then
+#    notify-send "terminal daemon is already running"
+#else
+#    killall urxvtd
+#    urxvtd -q -f -o &
+#    notify-send "terminal daemon is started"
+#fi
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 nitrogen --restore
@@ -80,7 +82,10 @@ sbxkb &
 flameshot &
 pa-applet &
 pasystray &
-picom -b &
+telegram-desktop &
+liferea &
+picom -b
+boltctl
 
 notify-send "skxkb, flameshot, pasystray, picom is started"
 
