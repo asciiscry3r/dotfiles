@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash 
 
-firejail --noprofile --noroot --nonewprivs --quiet --nogroups \
+firejail --noprofile --noroot --apparmor --quiet \
 	--blacklist=/usr/bin/less \
 	--blacklist=/usr/bin/more \
 	--blacklist=/usr/bin/vim \
@@ -15,4 +15,9 @@ firejail --noprofile --noroot --nonewprivs --quiet --nogroups \
 	--blacklist=/etc/sahdow~ \
 	--blacklist=/usr/bin/dd \
 	--blacklist=/usr/bin/echo \
-	--name=steam steam
+	--blacklist=/dev/mei0 \
+	--blacklist=/dev/mei \
+	--whitelist=/home/max/Pictures/* \
+	--whitelist=/home/max/Videos/* \
+	--whitelist=/home/max/.local/* \
+	--name=steam -- steam
