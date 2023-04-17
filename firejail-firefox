@@ -21,4 +21,4 @@ firejail --noroot --apparmor --nonewprivs --seccomp --quiet --private-dev --nogr
 	--blacklist=/dev/mei \
 	--whitelist=/home/max/Pictures \
 	--whitelist=/home/max/Video \
-	--name=firefox firefox --
+	--name=firefox -- firefox
