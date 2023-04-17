@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 dunstapparmor() {
     while true; do
 	ps aux | grep 'sleep 150' | awk '{print $2}' | xargs kill
@@ -24,11 +23,9 @@ xhost -
 
 sleep 1
 
-setxkbmap -layout us,ru,ua
+setxkbmap -layout us,ua
 setxkbmap -option grp:alt_shift_toggle
 
-killall telegram-desktop
-killall liferea
 killall pulseaudio
 killall /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 killall nitrogen
@@ -43,9 +40,7 @@ killall autotiling
 killall flashfocus
 killall opensnitch-ui
 killall redshift
-killall sbxkb
 killall pasystray
-killall flameshot
 killall picom
 killall pa-applet
 killall dunst
@@ -78,14 +73,11 @@ hushboard &
 autotiling &
 flashfocus &
 opensnitch-ui &
-sbxkb &
-flameshot &
 pa-applet &
 pasystray &
-telegram-desktop &
-liferea &
+firejail-telegram &
+firejail-liferea &
 picom -b
-boltctl
 
 notify-send "skxkb, flameshot, pasystray, picom is started"
 
