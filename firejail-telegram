@@ -17,5 +17,6 @@ firejail --noroot --seccomp --apparmor --nonewprivs --quiet --private-dev --nogr
 	--blacklist=/usr/bin/echo \
 	--blacklist=/dev/mei0 \
 	--blacklist=/dev/mei \
-	--whitelist=/home/max/Pictures/* \
-	--name=telegram telegram-desktop --
+	--whitelist=/home/max/Pictures \
+	--whitelist=/home/max/Videos \
+	--name=telegram -- telegram-desktop
