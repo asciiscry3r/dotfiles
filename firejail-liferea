@@ -1,0 +1,22 @@
+#!//usr/bin/env bash
+
+firejail --noroot --seccomp --apparmor --nonewprivs --quiet --private-dev --nogroups \
+	--blacklist=/usr/bin/less \
+	--blacklist=/usr/bin/more \
+	--blacklist=/usr/bin/vim \
+	--blacklist=/usr/bin/nano \
+	--blacklist=/usr/bin/rndaddentropy \
+	--blacklist=/usr/bin/sudo \
+	--blacklist=/etc/passwd \
+	--blacklist=/etc/sahdow \
+	--blacklist=/etc/gshadow \
+	--blacklist=/etc/gshadow~ \
+	--blacklist=/etc/passwd~ \
+	--blacklist=/etc/sahdow~ \
+	--blacklist=/usr/bin/dd \
+	--blacklist=/usr/bin/echo \
+	--blacklist=/dev/mei0 \
+	--blacklist=/dev/mei \
+	--whitelist=/home/max/Pictures \
+	--whitelist=/home/max/Videos \
+	--name=liferea -- liferea 
