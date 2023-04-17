@@ -39,7 +39,8 @@ bindsym $mod+Ctrl+m exec pavucontrol &
 # /usr/local/bin/google-chrome-libjemalloc.sh
 bindsym $mod+F1 exec emacsclient -nc &
 bindsym $mod+Shift+F2 exec google-chrome-stable --enable-chrome-browser-cloud-management --enable-crash-reporter --enable-extension-activity-logging --enable-logging --enable-protected-video-buffers --enable-reporting --no-self-delete --use-vulkan &
-bindsym $mod+F2 exec prime-run firefox --no-remote &
+bindsym $mod+F2 exec firejail-firefox &
+# --no-remote &
 bindsym $mod+F3 exec pcmanfm &
 bindsym $mod+Shift+d --release exec dunstctl close-all && notify-send "all messages are closed"
 bindsym $mod+Shift+h --release exec dunstctl history-pop
@@ -292,8 +293,8 @@ bar {
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-	# tray_output eDP-1
-	tray_output primary
+	tray_output HDMI-A-0
+	# tray_output primary
 
 	bindsym button4 nop
 	bindsym button5 nop
