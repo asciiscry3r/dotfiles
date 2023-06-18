@@ -5,12 +5,18 @@
  ;; If there is more than one, they won't work right.
  '(ansi-color-names-vector
    ["black" "#d55e00" "#009e73" "#f8ec59" "#0072b2" "#cc79a7" "#56b4e9" "white"])
- '(auth-source-save-behavior nil)
  '(custom-enabled-themes '(manoj-dark))
- '(package-selected-packages '(rainbow-mode pdf-tools yaml-mode magit))
+ '(display-battery-mode t)
+ '(display-line-numbers-type 'visual)
+ '(display-time-mode t)
+ '(global-display-line-numbers-mode t)
+ '(menu-bar-mode nil)
+ '(package-selected-packages '(## rainbow-mode pdf-tools yaml-mode magit))
+ '(scroll-bar-mode nil)
+ '(size-indication-mode t)
  '(tool-bar-mode nil))
 
-(require 'server)
+require 'server)
 (unless (server-running-p)
   (server-start))
 
@@ -21,12 +27,14 @@
  ;; If there is more than one, they won't work right.
  )
 
+(global-prettify-symbols-mode 1)
+
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(require 'python-mode)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
 (require 'php-mode)
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
@@ -36,3 +44,5 @@
 (global-rainbow-mode 1)
 
 (add-to-list 'global-mode-string '(" %i"))
+(put 'downcase-region 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
