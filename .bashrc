@@ -1,3 +1,4 @@
+\
 # Manjaro
 # Arch Wiki
 # ~/.bashrc
@@ -38,6 +39,8 @@ colors() {
 }
 
 [ -r /usr/share/bash-completion/bash_completion ] && . /usr/share/bash-completion/bash_completion
+
+export TERM=xterm-256color
 
 # Change the window title of X terminals
 case ${TERM} in
@@ -172,7 +175,7 @@ alias install_archivers='sudo pacman -S xarchiver arj cpio lha lrzip lzip lzop p
 
 alias install_gparted='yay -S gparted dosfstools jfsutils f2fs-tools exfatprogs reiserfsprogs udftools xfsprogs gpart mtools'
 
-alias install_software='yay -S i3-gaps haveged firefox imagemagick mpv opencv sdl2 shaderc base-devel glxinfo prime intel-media-driver sddm libva-mesa-driver mesa-vdpau meld xorg-xrandr xsel dmidecode libavtp pulseaudio-alsa hunspell hunspell-en_US tlp tlp-rdw ethtool smartmontools emacs hushboard-git caffeine-ng watchexec sec dunst fortune-mod cowsay lolcat rkhunter usbguard nmap pwgen acpica unhide etherape inetutils ispell i3status pcmanfm gvfs xorg-xwininfo xorg-server-xephyr xorg-xhost xorg-xrdb xorg-xkill lynis fwupd udisks2 redshift lxappearance ansible fotoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn htop strace audit apparmor firejail pulseaudio pavucontrol pa-applet-git modprobed-db wireless-regdb mpv udev-notify'
+alias install_software='yay -S polkit-gnome cbonsai bash-completion base base-devel i3-gaps haveged firefox imagemagick google-chrome-stable sdl2 shaderc base-devel glxinfo sddm meld xorg-xrandr xsel dmidecode libavtp hunspell hunspell-en_US tlp tlp-rdw ethtool smartmontools emacs hushboard-git caffeine-ng watchexec sec dunst fortune-mod cowsay lolcat rkhunter usbguard nmap pwgen acpica unhide etherape inetutils ispell i3status pcmanfm gvfs xorg-xwininfo xorg-server-xephyr xorg-xhost xorg-xrdb xorg-xkill lynis fwupd udisks2 redshift lxappearance ansible fotoxx zathura zathura-djvu zathura-pdf-mupdf zathura-ps zathura-cb undistract-me-git python-psutil xfce4-power-manager sbxkb autotiling psi-notify unclutter nitrogen polkit-gnome python-pyasn htop strace audit apparmor firejail pavucontrol pa-applet-git modprobed-db wireless-regdb mpv udev-notify cmake'
 
 alias runetherape='sudo chmod 700 /home/max/Downloads/Logs && sudo etherape -i any > /home/max/Downloads/Logs/Net/networklog-$(date +%H%M%m%d%Y).log && sudo chmod 400 -R /home/max/Downloads/Logs/Sys/* && sudo chmod 500 /home/max/Downloads/Logs'
 
@@ -197,7 +200,10 @@ echo -e "GRTD GNU/Linux 🐧\n
 Enemies in your devices always kill you - and all non local users against you.
 Run acpidump periodically.
 
-Scientology = is like in collaboration with russia against ukraine and ..."
+Scientology = is like in collaboration with russia against ukraine and ...
+
+Не вплив а маніпуляція не зміна а знищення не життя а вбиство
+"
 
 # memes
 fortune | cowsay -f tux | lolcat
@@ -205,6 +211,37 @@ fortune | cowsay -f tux | lolcat
 source /etc/profile.d/undistract-me.sh
 notify_when_long_running_commands_finish_install
 
+echo "RUN sudo sysctl -p /etc/sysctl.conf"
+
 alias todo='echo "watchexec -- notify-send ALEEERT FUCKING TRIPLE PIRACY ATTACK"'
 
-passwd -S max
+ls -all /boot/
+
+echo 'TODO
+
+ ** NGINX CAPTCHA
+
+MY INFRA
+
+ ** MKSSCRYER BUILD NGINX CROWSEC LUA NGINX MODULE
+
+ ** GROUP OF RESISTORS WHO SWITCH FROM ONE TO ANOTHER BY THE TIMER WITH PSEUDORANDOM OR RANDOM ALGORITM
+    - 20 rele - !!
+    - HF resistors - ?
+    - 20 types of resistors - !!
+    - NE 555 - 10
+    - Transistors keys - 50
+    - Capasitors - 30
+    - diodes - 50
+    - D micro preamp 
+    - Arduino + noise generator
+    - 4-5 dynamic or/and MEMS microphones - read AUDIO and decode to 20 PWM channels
+
+ ** RESISTORS FOR LR CHANNEL MIX AND NOISE GENERATOR IN PARALLEL TO AUDIO INPUT ( diodes with bad freaquency characteristics - don`t try this again ), someone have image about polarised filter for block loopback audio imput to output, something like this https://source.android.com/docs/core/audio/latency/loopback but not for imput
+
+'
+
+# sudo usermod -aG docker $USER Target = /usr/lib/docker Target = /usr/bin/docker
+# sudo usermod -aG tfenv $USER Target = /opt/tfenv Target = /var/lib/tfenv
+# Error! Bad return status for module build on kernel: 6.4.1-zen2-1-zen (x86_64)
+# Consult /var/lib/dkms/lkrg/0.9.6/build/make.log for more information.
