@@ -208,8 +208,7 @@ Scientology = is like in collaboration with russia against ukraine and ...
 # memes
 fortune | cowsay -f tux | lolcat
 
-source /etc/profile.d/undistract-me.sh
-notify_when_long_running_commands_finish_install
+[[ -f /usr/share/undistract-me/undistract-me.sh ]] && source /usr/share/undistract-me/undistract-me.sh
 
 echo "RUN sudo sysctl -p /etc/sysctl.conf"
 
@@ -227,15 +226,17 @@ MY INFRA
 
  ** GROUP OF RESISTORS WHO SWITCH FROM ONE TO ANOTHER BY THE TIMER WITH PSEUDORANDOM OR RANDOM ALGORITM
     - 20 rele - !!
-    - HF resistors - ?
-    - 20 types of resistors - !!
-    - NE 555 - 10
-    - Transistors keys - 50
-    - Capasitors - 30
-    - diodes - 50
-    - D micro preamp 
-    - Arduino + noise generator
-    - 4-5 dynamic or/and MEMS microphones - read AUDIO and decode to 20 PWM channels
+    - HF resistors - 100
+    - 20 types of resistors - 5000
+    - NE 555 - 100
+    - Transistors keys - 500
+    - Capasitors - 5000
+    - diodes - 500
+    - D micro preamps - 30
+    - Arduino + noise generator - 10
+    - 20 dynamic or/and MEMS microphones - read AUDIO and decode to 20 PWM channels
+    - ferrite choks - 100
+    - wire for coils
 
  ** RESISTORS FOR LR CHANNEL MIX AND NOISE GENERATOR IN PARALLEL TO AUDIO INPUT ( diodes with bad freaquency characteristics - don`t try this again ), someone have image about polarised filter for block loopback audio imput to output, something like this https://source.android.com/docs/core/audio/latency/loopback but not for imput
 
