@@ -18,16 +18,17 @@
     # If this option is set to mouse or keyboard, the monitor option
     # will be ignored.
     follow = keyboard
+    enable_posix_regex = true
 
     ### Geometry ###
 
     # dynamic width from 0 to 300
     # width = (0, 300)
     # constant width of 300
-    width = 400
+    width = (400, 500)
 
     # The maximum height of a single notification, excluding the frame.
-    height = 400
+    height = (0, 400)
 
     # Position the notification in the top right corner
     origin = top-right
