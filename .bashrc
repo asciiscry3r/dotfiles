@@ -197,12 +197,10 @@ alias runaideupdate='sudo chmod 700 /home/max/Downloads/Logs && sudo aide --upda
 # Name
 echo -e "GRTD GNU/Linux 🐧\n
 
-Enemies in your devices always kill you - and all non local users against you.
+'People' in your devices always kill you.
 Run acpidump periodically.
-
-Scientology = is like in collaboration with russia against ukraine and ...
-
-Не вплив а маніпуляція не зміна а знищення не життя а вбиство
+Scientology/Yusmalos = is like in collaboration with Russia(RF) against ukraine and ...
+New Age is 'Не вплив а маніпуляція не зміна а знищення не життя а вбиство'
 "
 
 # memes
@@ -216,31 +214,7 @@ alias todo='echo "watchexec -- notify-send ALEEERT FUCKING TRIPLE PIRACY ATTACK"
 
 ls -all /boot/
 
-echo 'TODO
-
- ** NGINX CAPTCHA
-
-MY INFRA
-
- ** MKSSCRYER BUILD NGINX CROWSEC LUA NGINX MODULE
-
- ** GROUP OF RESISTORS WHO SWITCH FROM ONE TO ANOTHER BY THE TIMER WITH PSEUDORANDOM OR RANDOM ALGORITM
-    - 20 rele - !!
-    - HF resistors - 100
-    - 20 types of resistors - 5000
-    - NE 555 - 100
-    - Transistors keys - 500
-    - Capasitors - 5000
-    - diodes - 500
-    - D micro preamps - 30
-    - Arduino + noise generator - 10
-    - 20 dynamic or/and MEMS microphones - read AUDIO and decode to 20 PWM channels
-    - ferrite choks - 100
-    - wire for coils
-
- ** RESISTORS FOR LR CHANNEL MIX AND NOISE GENERATOR IN PARALLEL TO AUDIO INPUT ( diodes with bad freaquency characteristics - don`t try this again ), someone have image about polarised filter for block loopback audio imput to output, something like this https://source.android.com/docs/core/audio/latency/loopback but not for imput
-
-'
+tracer -e
 
 # sudo usermod -aG docker $USER Target = /usr/lib/docker Target = /usr/bin/docker
 # sudo usermod -aG tfenv $USER Target = /opt/tfenv Target = /var/lib/tfenv
