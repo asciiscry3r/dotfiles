@@ -1,4 +1,3 @@
-\
 # Manjaro
 # Arch Wiki
 # ~/.bashrc
@@ -199,7 +198,7 @@ echo -e "GRTD GNU/Linux 🐧\n
 
 'People' in your devices always kill you.
 Run acpidump periodically.
-Scientology/Yusmalos = is like in collaboration with Russia(RF) against ukraine and ...
+Scientology/Yusmalos = is like in collaboration with `homo piraticus` and `homo soveticus` against people and ...
 New Age is 'Не вплив а маніпуляція не зміна а знищення не життя а вбиство'
 "
 
