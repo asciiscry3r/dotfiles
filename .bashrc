@@ -198,18 +198,14 @@ echo -e "GRTD GNU/Linux 🐧\n
 
 'People' in your devices always kill you.
 Run acpidump periodically.
-Scientology/Yusmalos = is like in collaboration with `homo piraticus` and `homo soveticus` against people and ...
-New Age is 'Не вплив а маніпуляція не зміна а знищення не життя а вбиство'
+Scientology/Yusmalos = is like in collaboration with 'homo piraticus' and 'homo soveticus' against people and ...
+New Age is 'Вплив = маніпуляція, зміна = знищення, життя = вбиство'
 "
 
 # memes
 fortune | cowsay -f tux | lolcat
 
 [[ -f /usr/share/undistract-me/undistract-me.sh ]] && source /usr/share/undistract-me/undistract-me.sh
-
-echo "RUN sudo sysctl -p /etc/sysctl.conf"
-
-alias todo='echo "watchexec -- notify-send ALEEERT FUCKING TRIPLE PIRACY ATTACK"'
 
 ls -all /boot/
 
